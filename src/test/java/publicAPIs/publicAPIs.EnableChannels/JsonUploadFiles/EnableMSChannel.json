@@ -1,0 +1,11 @@
+{
+      "streamId": "st-1414da80-8015-53b9-a0a7-71b9fe8fe910",
+      "channelDetails": {
+       "botName": "PublicConsumerbot3667",
+       "enable": true,
+       "type": "msteams",
+       "appId": "e51678c4-3c92-4053-8d0e-f9173ec1136e",
+       "appPassword": "DLu8Q~oB1BSUOpKcwUp.BWotfOqAagfPCOm4oaXz"
+      },
+      "type": "msteams"
+      }

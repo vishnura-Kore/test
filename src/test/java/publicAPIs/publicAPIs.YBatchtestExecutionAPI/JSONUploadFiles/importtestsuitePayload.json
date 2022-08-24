@@ -1,0 +1,8 @@
+{
+      "delimiter": ",",
+      "description": "Batch Test",
+      "fileName": "FileID",
+      "fileType": "csv",
+      "importType": "new",
+      "name": "Batch Testing123"
+      }

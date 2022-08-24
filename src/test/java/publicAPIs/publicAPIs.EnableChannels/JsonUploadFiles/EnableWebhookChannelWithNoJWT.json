@@ -1,0 +1,11 @@
+{
+      "app": {
+          "clientId": "smartclientId1",
+          "appName": "apppublic"
+      },
+      "displayName": "WebSDKName",
+      "type": "ivr",
+      "isAsync": false,
+      "enable": true,
+      "createInstance": true
+      }

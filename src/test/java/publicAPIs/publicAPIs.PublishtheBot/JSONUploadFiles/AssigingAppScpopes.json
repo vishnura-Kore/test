@@ -1,0 +1,41 @@
+{
+    "appName": "sanityadminapp6195",
+    "algorithm": "HS256",
+    "pushNotifications": {
+        "enable": false,
+        "webhookUrl": ""
+    },
+    "bots": [
+        "st-6e90ff00-2f46-56b6-b80d-6181229dd496"
+    ],
+    "scope": [
+        {
+            "bot": "st-6e90ff00-2f46-56b6-b80d-6181229dd496",
+            "scopes": [
+                "intent_entity:detection",
+                "user_engagement:count",
+                "batchtest:execution",
+                "batchtest:management",
+                "chat_history:read",
+                "debug_logs:read",
+                "bot_definition:bot_export",
+                "bot_variables:import",
+                "bot_variables:export",
+                "channel_management:proactive_messages",
+                "test_and_train:ml",
+                "test_and_train:faq",
+                "test_and_train:ml_import",
+                "test_and_train:ml_export",
+                "logs:change_logs",
+                "bot_sessions:read",
+                "billing_sessions:read",
+                "custom_dashboards:custom_dashboards",
+                "rcs_optin:optin_users",
+                "get_metrics:get_metrics",
+                "knowledge_graph_export:knowledge_graph_export",
+                "nlp_configurations:nlp_configurations",
+                "update_faqs:update_faqs"
+            ]
+        }
+    ]
+}

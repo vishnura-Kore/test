@@ -1,0 +1,4 @@
+input,intent,botName
+chek my email,None,PublicConsumerbot1047
+can i check my email,None,
+how can i check email id,SendEmail,
