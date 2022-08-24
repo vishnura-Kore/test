@@ -1,0 +1,15 @@
+ {
+      "appName": "Test",
+      "algorithm": "HS256",
+      "scope": [
+         "anonymouschat",
+         "registration"
+      ],
+      "bots": [
+         "PstreamId"
+      ],
+      "pushNotifications": {
+         "enable": false,
+         "webhookUrl": ""
+      }
+      }

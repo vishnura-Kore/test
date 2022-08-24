@@ -1,0 +1,27 @@
+{
+    "streamId": "st-7d4678dc-9ca0-543a-b880-01d30ea5d57e",
+    "Condition": "User input exceeds the maximum allowed sentence limit or contains one or more words that exceed the allowed word length",
+    "Key": "User entered a very long word",
+    "Original Message": [
+        "Looks like you have mistyped a really long word. Please check if you have missed a space or spelled a word incorrectly."
+    ],
+    "channelUXMaps": [
+        {
+            "taskUXMaps": [],
+            "fieldUXMaps": [],
+            "channel": "default",
+            "botUXMap": {
+                "uXMap": "Looks like you have mistyped a really long word. Please check if you have missed a space or spelled a word incorrectly.",
+                "isMarkDown": true
+            }
+        },
+        {
+            "channel": "kore",
+            "botUXMap": {
+                "uXMap": "Validating Stanard response",
+                "isMarkDown": true
+            }
+        }
+    ],
+    "hideOriginalMessages": true
+}

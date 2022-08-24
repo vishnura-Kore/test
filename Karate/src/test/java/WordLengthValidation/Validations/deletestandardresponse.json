@@ -1,0 +1,19 @@
+{
+    "streamId": "st-d66659c1-88ac-5500-9cf2-1e01b342a9a4",
+    "Condition": "User input exceeds the maximum allowed sentence limit or contains one or more words that exceed the allowed word length",
+    "Key": "User entered a very long word",
+    "Original Message": [
+        "Looks like you have mistyped a really long word. Please check if you have missed a space or spelled a word incorrectly."
+    ],
+    "channelUXMaps": [
+        {
+            "taskUXMaps": [],
+            "fieldUXMaps": [],
+            "channel": "default",
+            "botUXMap": {
+                "uXMap": "Looks like you have mistyped a really long word. Please check if you have missed a space or spelled a word incorrectly.",
+                "isMarkDown": true
+            }
+        }
+    ]
+}

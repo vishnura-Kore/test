@@ -1,0 +1,18 @@
+{
+    "importOptions": {
+        "nlpData": [],
+        "settings": [
+            "botSettings",
+            "botVariables",
+            "ivrSettings"
+        ],
+        "options": {},
+        "storyBoardScenes": {
+            "includeComments": true
+        },
+        "tasks": [],
+        "customDashboard": false
+    },
+    "botDefinition": "628f55b953681220d621ae93",
+    "configInfo": "628f55bab921545a465568e2"
+}

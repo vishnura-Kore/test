@@ -1,0 +1,31 @@
+[
+  {
+    "key": "Global",
+    "value": "Globalkey-prePopulated",
+    "hint": "",
+    "variableType": "env",
+    "scope": "prePopulated"
+  },
+  {
+    "key": "Global-1",
+    "value": "Global onInstall",
+    "hint": "",
+    "variableType": "env",
+    "scope": "onInstall"
+  },
+  {
+    "key": "Lang",
+    "variableType": "locale",
+    "scope": "prePopulated",
+    "localeData": {
+      "en": {
+        "value": "english language prompt",
+        "hint": ""
+      },
+      "de": {
+        "value": "Chinese language prompt",
+        "hint": ""
+      }
+    }
+  }
+]

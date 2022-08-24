@@ -1,0 +1,68 @@
+  {
+    "resources": [
+        {
+            "namespace": "enterprise",
+            "resourceId": "SendEmailDialogID1",
+            "namespaceIds": [],
+            "resourceType": "dialog",
+            "versionComment": "e22",
+            "approvalRequestedLanguages": [
+                "en"
+            ]
+        },
+        {
+            "resourceId": "smalltalk",
+            "resourceType": "smalltalk",
+            "namespace": "enterprise"
+        },
+        {
+            "resourceId": "NL",
+            "resourceType": "NL",
+            "modules": [
+                "nl_model",
+                "settings"
+            ]
+        },
+        {
+            "resourceId": "CHANNELS",
+            "resourceType": "CHANNELS",
+            "modules": [
+                "ivr"
+            ]
+        },
+        {
+            "resourceId": "EXTENSIONS",
+            "resourceType": "EXTENSIONS",
+            "modules": [
+                "botkit",
+                "agent_transfer",
+                "websdk",
+                "events"
+            ]
+        },
+        {
+            "resourceId": "SETTINGS",
+            "resourceType": "SETTINGS",
+            "modules": [
+                "general",
+                "bot_variables",
+                "pii",
+                "ivr",
+                "hold_resume",
+                "custom_script",
+                "advanced"
+            ]
+        },
+        {
+            "resourceId": "BOTLANGUAGES",
+            "resourceType": "BOTLANGUAGES",
+            "modules": {
+                "enabledLanguages": [
+                    "en"
+                ]
+            }
+        }
+    ],
+    "publishAllComponents": true,
+    "versionComment": "e22"
+}
