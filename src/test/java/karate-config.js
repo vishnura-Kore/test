@@ -17,7 +17,7 @@ var config = {
 
 			if(env == 'staging') {
 				config.appUrl = 'https://staging-bots.korebots.com/api/1.1/';
-                config.username= 'botowner@koreai.in' ; 
+                config.username= 'botowner@koreai.in';
                 config.password = 'Kore@123456' ;
                 config.jwturl = 'https://demo.kore.net/mock/util/sts';
                 config.publicUrl ='https://staging-bots.korebots.com/api';
