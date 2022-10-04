@@ -16,29 +16,29 @@ var config = {
                 }
 
 			if(env == 'staging') {
-				config.appUrl = 'https://staging-bots.korebots.com/api/1.1/', 
-                config.username= 'botowner@koreai.in', 
-                config.password = 'Kore@123456' ,
-                config.jwturl = 'https://demo.kore.net/mock/util/sts', 
-                config.publicUrl ='https://staging-bots.korebots.com/api', 
-                config.runtimeUrl= 'https://staging-bots.korebots.com'
+				config.appUrl = 'https://staging-bots.korebots.com/api/1.1/';
+                config.username= 'botowner@koreai.in'; 
+                config.password = 'Kore@123456' ;
+                config.jwturl = 'https://demo.kore.net/mock/util/sts';
+                config.publicUrl ='https://staging-bots.korebots.com/api';
+                config.runtimeUrl= 'https://staging-bots.korebots.com';
 				}
 			else if(env == 'qa1') {
-	            config.appUrl = 'https://qa1-bots.kore.ai/api/1.1/',
-	            config.username ='botowner@koreai.in',
-	            config.password ='Kore@112233'
-	            config.jwturl ='https://demo.kore.net/mock/util/sts',
-	            config.publicUrl ='https://staging-bots.korebots.com/api',
-	            config.runtimeUrl='https://staging-bots.korebots.com'
+	            config.appUrl = 'https://qa1-bots.kore.ai/api/1.1/';
+	            config.username ='botowner@koreai.in';
+	            config.password ='Kore@112233';
+	            config.jwturl ='https://demo.kore.net/mock/util/sts';
+	            config.publicUrl ='https://staging-bots.korebots.com/api';
+	            config.runtimeUrl='https://staging-bots.korebots.com';
 				}
  
 			else if(env == 'prod'){
-	            config.appUrl = 'https://bots.kore.ai/api/1.1/',
-	            config.username ='botowner@koreai.in',
-	            config.password ='Kore@1122'
-	            config.jwturl ='https://demo.kore.net/mock/util/sts',
-	            config.publicUrl ='https://bots.kore.ai/api/',
-	            config.runtimeUrl='https://bots.kore.ai'
+	            config.appUrl = 'https://bots.kore.ai/api/1.1/';
+	            config.username ='botowner@koreai.in';
+	            config.password ='Kore@1122';
+	            config.jwturl ='https://demo.kore.net/mock/util/sts';
+	            config.publicUrl ='https://bots.kore.ai/api/';
+	            config.runtimeUrl='https://bots.kore.ai';
 	            }
 result = karate.callSingle('classpath:token/1_0AuthToken.feature',config);
 
