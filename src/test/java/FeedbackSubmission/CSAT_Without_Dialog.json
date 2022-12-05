@@ -1,0 +1,6 @@
+{
+    "name": "noDialogSurvey",
+    "type": "CSAT",
+    "isEndOfConversation": true,
+    "createDialog": false
+}

@@ -9,7 +9,9 @@ Feature: Enable channel and creating app
     * def botadminaccesstokenuser1 = JavaClass.get('botadminaccesstokenuser1')
     * def botadminUserID1 = JavaClass.get('botadminUserID1')
  * def StreamID = JavaClass.get('StreamID')
+ * def adminaccountID1 = JavaClass.get('adminaccountID1')
  * def name = JavaMethods.generateRandom('number')
+ 
   Scenario: create appscope
     * def Payload =
       """
@@ -36,6 +38,7 @@ Feature: Enable channel and creating app
     And request Payload
     And header Authorization = 'bearer '+botadminaccesstokenuser1
     And header Content-Type = 'application/json'
+     And header AccountId = adminaccountID1
     When method post
     Then status 200
     And print 'Response is: ', response

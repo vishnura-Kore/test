@@ -11,35 +11,12 @@ Feature: Enable channel and creating app
     * def JavaClass = Java.type('data.HashMap')
     * def botadminaccesstokenuser1 = JavaClass.get('botadminaccesstokenuser1')
     * def botadminUserID1 = JavaClass.get('botadminUserID1')
+     * def adminaccountID1 = JavaClass.get('adminaccountID1')
     * def Botname = JavaClass.get('Botname')
+    
 
-  Scenario: create appscope
-    * def PstreamId = JavaClass.get('PstreamId')
-    * def name = JavaMethods.generateRandom('number')
-    * print name
-    * def Payload = read("JsonUploadFiles/createAppScope.json")
-    * set Payload.appName = 'Test'+name
-    * set Payload.bots[0] = PstreamId
-    * print Payload
-    Given path '/users/'+botadminUserID1+'/streams/'+PstreamId+'/sdk/apps'
-    And request Payload
-    And header Authorization = 'bearer '+botadminaccesstokenuser1
-    And header Content-Type = 'application/json'
-    When method post
-    Then status 200
-    And print 'Response is: ', response
-    * def smartclientId1 = response.clientId
-    * def appname = response.appName
-    * def smartclientsecret1 = response.clientSecret
-    * print 'appList account id is:',smartclientId1
-    * JavaClass.add('smartclientId1', smartclientId1)
-    * JavaClass.add('appname', appname)
-    * JavaClass.add('smartclientsecret1', smartclientsecret1)
-    * print smartclientId1
-    * print smartclientsecret1
-    
-    
-    Scenario: Delete channel in bot
+
+  Scenario: Delete channel in bot
     
      * def PstreamId = JavaClass.get('PstreamId')
     Given path '/users/'+botadminUserID1+'/builder/streams/'+PstreamId+'/channel/ivr'
@@ -53,9 +30,33 @@ Feature: Enable channel and creating app
     When method post
     Then status 200
     And print 'Response is: ', response
- 
     
     
+  Scenario: create appscope
+    * def PstreamId = JavaClass.get('PstreamId')
+    * def name = JavaMethods.generateRandom('number')
+    * print name
+    * def Payload = read("JsonUploadFiles/createAppScope.json")
+    * set Payload.appName = 'Test'+name
+    * set Payload.bots[0] = PstreamId
+    * print Payload
+    Given path '/users/'+botadminUserID1+'/streams/'+PstreamId+'/sdk/apps'
+    And request Payload
+    And header Authorization = 'bearer '+botadminaccesstokenuser1
+    And header Content-Type = 'application/json'
+     And header AccountId = adminaccountID1
+    When method post
+    Then status 200
+    And print 'Response is: ', response
+    * def smartclientId1 = response.clientId
+    * def appname = response.appName
+    * def smartclientsecret1 = response.clientSecret
+    * print 'appList account id is:',smartclientId1
+    * JavaClass.add('smartclientId1', smartclientId1)
+    * JavaClass.add('appname', appname)
+    * JavaClass.add('smartclientsecret1', smartclientsecret1)
+    * print smartclientId1
+    * print smartclientsecret1
     
     
 
@@ -80,6 +81,10 @@ Feature: Enable channel and creating app
     And header Content-Type = 'application/json'
     When method post
     Then status 200
+    
+    
+   
+    
 
   Scenario: Positive Scenario ----> Enabling Web/Mobile channel
     * def appname = JavaClass.get('appname')
@@ -113,7 +118,7 @@ Feature: Enable channel and creating app
     * print name
     * def Payload = read("JsonUploadFiles/EnableMSChannel.json")
     * set Payload.streamId = PstreamId
-    * set Payload.channelDetails.botName =  Botname
+    * set Payload.channelDetails.botName = Botname
     * print Payload
     Given url publicUrl
     Given path 'public/channels'

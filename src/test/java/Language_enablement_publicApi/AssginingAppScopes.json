@@ -1,0 +1,50 @@
+{
+    "algorithm": "HS256",
+    "appName": "testttt",
+    "bots": [],
+    "pushNotifications": {
+        "enable": false,
+        "webhookUrl": ""
+    },
+    "scope": [
+        {
+            "scopes": [
+                "intent_entity:detection",
+                "bot_definition:bot_import",
+                "bot_definition:bot_export",
+                "bot_definition:bot_create",
+                "batchtest:execution",
+                "batchtest:management",
+                "bot_publish:publish_request",
+                "bot_publish:publish_status",
+                "test_and_train:ml",
+                "test_and_train:faq",
+                "test_and_train:ml_import",
+                "test_and_train:ml_export",
+                "nlp_configurations:nlp_configurations",
+                "logs:change_logs",
+                "logs:admin_console_audit_logs",
+                "role_management:role_management",
+                "delete:delete_user_data",
+                "chat_history:read",
+                "bot_sessions:read",
+                "billing_sessions:read",
+                "user_management:user_management",
+                "custom_dashboards:custom_dashboards",
+                "knowledge_graph:knowledge_graph",
+                "update_faqs_from_BAC:update_faqs_from_BAC",
+                "channel_management:channel_management",
+                "channel_management:proactive_messages",
+                "botkit:botkit",
+                "master_admin:master_admin",
+                "processflow:execution",
+                "process_definition:import",
+                "process_definition:export",
+                "process_definition:list_of_apps",
+                "process_publish:publish",
+                "process_logs:audit_logs",
+                "language_settings:publicAPI"
+            ]
+        }
+    ]
+}

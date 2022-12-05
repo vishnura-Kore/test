@@ -1,0 +1,8 @@
+{
+    "fromDate": "2022-03-02T07:18:54.089Z",
+    "toDate": "2022-03-05T10:30:25.931Z",
+    "unitType":  ["session","request","alert","proactive"],
+    "groupByBot": "yes",
+    "streamIds": ["st-9bcf04f2-a1ce-5064-8634-bd546ab11365"],
+    "groupByPeriod": "date_day"
+}

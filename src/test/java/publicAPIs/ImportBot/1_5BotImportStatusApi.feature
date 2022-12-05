@@ -21,8 +21,9 @@ Feature: Bot import Status API  with positive and negative Scenarios
     And print responseTime
     And print response
     * def PstreamId = response.streamId
+    * def Botname = response.statusLogs[0].taskName
     * JavaClass.add('PstreamId', PstreamId)
-    * print PstreamId
+    * JavaClass.add('Botname', Botname)
     And match $..status contains ["success"]
     And match response._id == ConusmerBotIDBir
 
@@ -41,7 +42,7 @@ Feature: Bot import Status API  with positive and negative Scenarios
     * match response.errors[0].code == 400
     And print 'Response is ', response
 
-  #
+  
   Scenario: Negative Scenario---->  Bot import status with no JWT TOKEN
     * def num = JavaMethods.generateRandom('number')
     * def ConusmerBotIDBir = JavaClass.get('ConusmerBotIDBir')

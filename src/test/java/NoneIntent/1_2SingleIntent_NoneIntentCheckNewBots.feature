@@ -17,7 +17,7 @@ Feature: To validate the None Intent Check for the New Bots
     * def JavaClass = Java.type('data.commonJava')
     * def name = JavaClass.generateRandom('number')
     * print name 
-    * def Payload = read('CreateBot.json')
+    * def Payload = read('BotCreation.json')
     * set Payload.name = "Sanity"+name
     * print  Payload
     Given path 'users/'+userId+'/builder/streams' 
@@ -91,7 +91,7 @@ Feature: To validate the None Intent Check for the New Bots
     Scenario: Disable Multi Intent Model
      * def SanityBotStreamId = JavaClass.get('SanityBotStreamId')
       * def anlsValue = JavaClass.get('anlsValue')
-    Given url '/builder/streams/'+SanityBotStreamId+'/advancedNLSettings/'+anlsValue
+    Given path '/builder/streams/'+SanityBotStreamId+'/advancedNLSettings/'+anlsValue
     And header Content-Type = 'application/json'
     And header Authorization = 'bearer '+botadminaccesstokenuser1
     And header AccountId = adminaccountID1
@@ -110,7 +110,7 @@ Feature: To validate the None Intent Check for the New Bots
     
     Scenario: None Intent Check for New Bots
      * def SanityBotStreamId = JavaClass.get('SanityBotStreamId')
-    Given url '/builder/streams/'+SanityBotStreamId+'/mlparams'
+    Given path '/builder/streams/'+SanityBotStreamId+'/mlparams'
     And header Content-Type = 'application/json'
     And header bot-language = 'en'
     And header bot-language = 'en'
@@ -123,12 +123,15 @@ Feature: To validate the None Intent Check for the New Bots
     When method get
     Then status 200
     And print response
-    * def value = $..mlConfigurations.NoneIntent
-    * match value == [true]
-    * def value = $..mlConfigurations.ML_Add_FAQS_To_NoneIntent
-    * match value == [true]
-    * def value = $..mlConfigurations.NoneIntentCustomTraining
-    * match value == [false]
+    * def value4 = $..mlConfigurations.NoneIntent
+    * print value4
+    * match value4 == [true,true]
+    * def value5 = $..mlConfigurations.ML_Add_FAQS_To_NoneIntent
+    * print value5
+    * match value5 == [true,true]
+    * def value6 = $..mlConfigurations.NoneIntentCustomTraining
+    * print value6
+    * match value6 == [false,false]
     
     Scenario: Delete the bot
     * def SanityBotStreamId = JavaClass.get('SanityBotStreamId')

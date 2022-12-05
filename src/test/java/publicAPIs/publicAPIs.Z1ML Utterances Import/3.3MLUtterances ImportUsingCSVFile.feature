@@ -1,5 +1,5 @@
 
-Feature: MLUtterancesImportAPI1 with Positive and Negative Scenarios
+Feature: MLUtterancesImportAPI with Positive and Negative Scenarios
 
   Background: 
     * url appUrl
@@ -17,7 +17,7 @@ Feature: MLUtterancesImportAPI1 with Positive and Negative Scenarios
     Given path file
     And header Content-Type = 'multipart/form-data'
     And header auth = BotBuilderJWTToken
-    And multipart file file = { read: 'UploadFiles/ImportFile_MLUtterances 50.csv', filename: 'UploadFiles/ImportFile_MLUtterances 50.csv', contentType: 'UploadFiles/ImportFile_MLUtterances 50.csv' }
+    And multipart file file = { read: 'UploadFiles/fileupload_MLUtterances.csv', filename: 'UploadFiles/fileupload_MLUtterances.csv', contentType: 'application/json' }
     And multipart field fileContext = 'bulkImport'
     And multipart field fileExtension = 'csv'
     When method post
@@ -26,30 +26,11 @@ Feature: MLUtterancesImportAPI1 with Positive and Negative Scenarios
     * JavaClass.add('CSVFileId', CSVFileId)
     * print CSVFileId
     
-    
-    Scenario: CSV JunkFile upload
-    Given url publicUrl
-    * def file = '/public/uploadfile'
-    Given path file
-    And header Content-Type = 'multipart/form-data'
-    And header auth = BotBuilderJWTToken
-    And multipart file file = { read: 'UploadFiles/ImportFile_emptydata.csv', filename: 'UploadFiles/ImportFile_emptydata.csv', contentType: 'UploadFiles/ImportFile_emptydata.csv' }
-    And multipart field fileContext = 'bulkImport'
-    And multipart field fileExtension = 'csv'
-    When method post
-    Then status 200
-    * def CSVJUNKFileId = response.fileId
-    * JavaClass.add('CSVJUNKFileId', CSVJUNKFileId)
-    * print CSVJUNKFileId
-
-
-
-
 
   Scenario: PositiveScenario....>> MLUtterancesImport  with CSV FILE ID
     * def SanitystreamId = JavaClass.get('SanitystreamId')
     * def CSVFileId = JavaClass.get('CSVFileId')
-    * def Payload = read('UploadFiles/payload.json')
+    * def Payload = read('UploadFiles/payloadCSV.json')
     * set Payload.fileId = CSVFileId
     Given url publicUrl
     Then path '/public/bot/'+SanitystreamId+'/mlimport'
@@ -66,8 +47,90 @@ Feature: MLUtterancesImportAPI1 with Positive and Negative Scenarios
     And match $..requestType == ["MLimport"]
     
     
+     * def sleep =
+      """
+      function(seconds){
+        for(i = 0; i <= seconds; i++)
+        {
+          java.lang.Thread.sleep(1*5000);
+          karate.log(i);
+        }
+      }
+      """
+* call sleep 10 
+
+    Scenario: PositiveScenario...>>MLUtterancesImportStatus With CSV File
+    * def SanitystreamId = JavaClass.get('SanitystreamId')
+    * def MLUtterenceID = JavaClass.get('MLUtterenceID')
+    Given url publicUrl
+    Then path '/public/bot/'+SanitystreamId+'/mlimport/status/'+MLUtterenceID
+    And header auth = BotBuilderJWTToken
+    And header Content-Type = 'application/json'
+    And retry until response.status == 'success' || response.status == 'failure'
+    When method get
+    Then status 200
+    And print 'Response is: ', response
+    And match $..status == ["success"]
+    And match $..requestType == ["MLimport"]
+    And match $..message == ["File imported completed. 124 utterances copied successfully"]
     
-    Scenario: NegativeScenario....>> MLUtterancesImport  with CSV JUNK FILE ID
+    
+
+
+  Scenario: Positive Scenario MLUtteranceTrain API With CSV File
+    * def SanitystreamId = JavaClass.get('SanitystreamId')
+    * def MLUtterenceID = JavaClass.get('MLUtterenceID')
+    Given url publicUrl
+    Then path '/public/bot/'+SanitystreamId+'/ml/train'
+    And header auth = BotBuilderJWTToken
+    And header Content-Type = 'application/json'
+    When method post
+    Then status 200
+    And print 'Response is: ', response
+    And match $..message == ["Training Queued."]
+    
+    * def sleep =
+      """
+      function(seconds){
+        for(i = 0; i <= seconds; i++)
+        {
+          java.lang.Thread.sleep(1*5000);
+          karate.log(i);
+        }
+      }
+      """
+* call sleep 10
+
+  Scenario: Positive Scenario MLUtteranceTrainStatus With csv File
+    * def SanitystreamId = JavaClass.get('SanitystreamId')
+    Given url publicUrl
+    Then path '/public/bot/'+SanitystreamId+'/ml/train/status'
+    And header auth = BotBuilderJWTToken
+    And header Content-Type = 'application/json'
+    #And retry until response.status == 'Finished' || response.status == 'failed'
+    When method get
+    Then status 200
+    And print 'Response is: ', response
+    And match $..trainingStatus == ["Finished"]
+    
+    
+    Scenario: CSV JunkFile upload
+    Given url publicUrl
+    * def file = '/public/uploadfile'
+    Given path file
+    And header Content-Type = 'multipart/form-data'
+    And header auth = BotBuilderJWTToken
+    And multipart file file = { read: 'UploadFiles/ImportFile_emptydata.csv', filename: 'UploadFiles/ImportFile_emptydata.csv', contentType: 'UploadFiles/ImportFile_emptydata.csv' }
+    And multipart field fileContext = 'bulkImport'
+    And multipart field fileExtension = 'csv'
+    When method post
+    Then status 200
+    * def CSVJUNKFileId = response.fileId
+    * JavaClass.add('CSVJUNKFileId', CSVJUNKFileId)
+    * print CSVJUNKFileId
+    
+    
+    Scenario: NegativeScenario....>> MLUtterancesImport with CSV JUNK FILE ID
     * def SanitystreamId = JavaClass.get('SanitystreamId')
     * def CSVJUNKFileId = JavaClass.get('CSVJUNKFileId')
     * def Payload = read('UploadFiles/junkpayload3.json')
@@ -84,8 +147,7 @@ Feature: MLUtterancesImportAPI1 with Positive and Negative Scenarios
     
     
     
-    
-    
+   
 
   Scenario: NegativeScenario....>> MLUtterancesImport with CSV FILE ID with invalid StreamId
     * def SanitystreamId = JavaClass.get('SanitystreamId')
@@ -148,20 +210,20 @@ Feature: MLUtterancesImportAPI1 with Positive and Negative Scenarios
     Then status 405
     And print 'Response is: ', response
 
-  Scenario: PositiveScenario...>>MLUtterancesImportStatus With CSV File
-    * def SanitystreamId = JavaClass.get('SanitystreamId')
-    * def MLUtterenceID = JavaClass.get('MLUtterenceID')
-    Given url publicUrl
-    Then path '/public/bot/'+SanitystreamId+'/mlimport/status/'+MLUtterenceID
-    And header auth = BotBuilderJWTToken
-    And header Content-Type = 'application/json'
-    And retry until response.status == 'success' || response.status == 'failure'
-    When method get
-    Then status 200
-    And print 'Response is: ', response
-    And match $..status == ["success"]
-    And match $..requestType == ["MLimport"]
-    And match $..message == ["File imported completed. 48 utterances copied successfully"]
+  #Scenario: PositiveScenario...>>MLUtterancesImportStatus With CSV File
+    #* def SanitystreamId = JavaClass.get('SanitystreamId')
+    #* def MLUtterenceID = JavaClass.get('MLUtterenceID')
+    #Given url publicUrl
+    #Then path '/public/bot/'+SanitystreamId+'/mlimport/status/'+MLUtterenceID
+    #And header auth = BotBuilderJWTToken
+    #And header Content-Type = 'application/json'
+    #And retry until response.status == 'success' || response.status == 'failure'
+    #When method get
+    #Then status 200
+    #And print 'Response is: ', response
+    #And match $..status == ["success"]
+    #And match $..requestType == ["MLimport"]
+    #And match $..message == ["File imported completed. 48 utterances copied successfully"]
 
   Scenario: NegativeScenario...>>MLUtterancesImportStatus With CSV File with invalid StreamId
     * def SanitystreamId = JavaClass.get('SanitystreamId')

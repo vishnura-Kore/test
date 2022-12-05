@@ -1,0 +1,13 @@
+{
+    "channel": "msteams",
+    "userIdentityType": "resolve",
+    "message": {
+        "type": "text",
+        "val": "Notification from the MS Teams"
+        
+    },
+    "identities": [
+        "praveen@koredotai.onmicrosoft.com",
+        "ravindranaik@koredotai.onmicrosoft.com"
+    ]
+}

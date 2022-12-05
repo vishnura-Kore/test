@@ -1,4 +1,4 @@
-@runtime
+@R10.0
 Feature: RunTime Scenarios
 
   Background: 
@@ -6,9 +6,8 @@ Feature: RunTime Scenarios
     * def JavaClass = Java.type('data.HashMap')
     * def JavaMethods = Java.type('data.commonJava')
     * def name = JavaMethods.generateRandom('number')
-     * def streamId = JavaClass.get('streamId')
 
-  Scenario: Generating JWT Token
+  Scenario: Generate JWT Token
     * def smartclientId1 = JavaClass.get('smartclientId1')
     * def smartclientsecret1 = JavaClass.get('smartclientsecret1')
     * def userID1 = JavaClass.get('userID1')
@@ -39,25 +38,53 @@ Feature: RunTime Scenarios
     * JavaClass.add('ConsumerWebHookJWT', ConsumerWebHookJWT)
     And print  'Response is ' , response
 
-  Scenario: input Hi
+
+Scenario: input hi
     * def Payload =
       """
         {
         "message": {
-            "text": "Hi"
+            "text": "hi"
         },
         "from": {
-            "id": ""
+            "id": "intnotiden"
         },
         "to": {
             "id": "4321"
         }
         }
       """
-    * set Payload.from.id = "Kore"+name
-   * def UserId1 = Payload.from.id
-    * print UserId1
+    * def streamId = JavaClass.get('streamId')
     * def ConsumerWebHookJWT = JavaClass.get('ConsumerWebHookJWT')
+    * print streamId
+    * print ConsumerWebHookJWT
+    Given url runtimeUrl
+    Then path '/chatbot/hooks/'+streamId
+    And request Payload
+    And header Authorization = 'bearer '+ConsumerWebHookJWT
+    And header Content-Type = 'application/json'
+    When method post
+    Then status 200
+    And print 'Response is: ', response
+  
+Scenario: intent not identified event
+    * def Payload =
+      """
+        {
+        "message": {
+            "text": "xyz"
+        },
+        "from": {
+            "id": "intnotiden"
+        },
+        "to": {
+            "id": "4321"
+        }
+        }
+      """
+    * def streamId = JavaClass.get('streamId')
+    * def ConsumerWebHookJWT = JavaClass.get('ConsumerWebHookJWT')
+    * print streamId
     * print ConsumerWebHookJWT
     Given url runtimeUrl
     Then path '/chatbot/hooks/'+streamId
@@ -68,26 +95,25 @@ Feature: RunTime Scenarios
     Then status 200
     And print 'Response is: ', response
 
-  Scenario:input Variable check
+  Scenario: Intent Identification
+    * def streamId = JavaClass.get('streamId')
     * def ConsumerWebHookJWT = JavaClass.get('ConsumerWebHookJWT')
+    * print streamId
     * print ConsumerWebHookJWT
     * def Payload =
       """
         {
         "message": {
-            "text": "variableCheck"
+            "text": "Execution"
         },
         "from": {
-            "id": ""
+            "id": "intentidentification1"
         },
         "to": {
             "id": "4321"
         }
         }
       """
-    * set Payload.from.id = "Kore"+name
-    * def User2 = Payload.from.id
-    * print User2
     Given url runtimeUrl
     Then path '/chatbot/hooks/'+streamId
     And request Payload
@@ -97,28 +123,26 @@ Feature: RunTime Scenarios
     Then status 200
     And print 'Response is: ', response
     
+    #sending Confirmation node value
     
-    
-     Scenario: input wrong data
+    * def streamId = JavaClass.get('streamId')
+    * def ConsumerWebHookJWT = JavaClass.get('ConsumerWebHookJWT')
+    * print streamId
+    * print ConsumerWebHookJWT
     * def Payload =
       """
         {
         "message": {
-            "text": "asdfsdfsd"
+            "text": "TestRunTime"
         },
         "from": {
-            "id": ""
+            "id": "intentidentification1"
         },
         "to": {
             "id": "4321"
         }
         }
       """
-    * set Payload.from.id = "Kore"+name
-     * def UserId3 = Payload.from.id
-    * print UserId3
-    * def ConsumerWebHookJWT = JavaClass.get('ConsumerWebHookJWT')
-    * print ConsumerWebHookJWT
     Given url runtimeUrl
     Then path '/chatbot/hooks/'+streamId
     And request Payload
@@ -128,27 +152,26 @@ Feature: RunTime Scenarios
     Then status 200
     And print 'Response is: ', response
     
+   Scenario: Confirmation retry Identification
     
-      Scenario: input FunctionCheck
+    * def streamId = JavaClass.get('streamId')
+    * def ConsumerWebHookJWT = JavaClass.get('ConsumerWebHookJWT')
+    * print streamId
+    * print ConsumerWebHookJWT
     * def Payload =
       """
         {
         "message": {
-            "text": "FunctionCheck"
+            "text": "Login"
         },
         "from": {
-            "id": ""
+            "id": "Confiretry"
         },
         "to": {
             "id": "4321"
         }
         }
       """
-    * set Payload.from.id = "Kore"+name
-     * def UserId6 = Payload.from.id
-    * print UserId6
-    * def ConsumerWebHookJWT = JavaClass.get('ConsumerWebHookJWT')
-    * print ConsumerWebHookJWT
     Given url runtimeUrl
     Then path '/chatbot/hooks/'+streamId
     And request Payload
@@ -158,30 +181,26 @@ Feature: RunTime Scenarios
     Then status 200
     And print 'Response is: ', response
     
+    # confirmation retry prompt
     
-    
-    
-      Scenario: input SendEmail
+    * def streamId = JavaClass.get('streamId')
+    * def ConsumerWebHookJWT = JavaClass.get('ConsumerWebHookJWT')
+    * print streamId
+    * print ConsumerWebHookJWT
     * def Payload =
       """
         {
         "message": {
-            "text": "SendEmail"
+            "text": "test"
         },
         "from": {
-            "id": ""
+            "id": "Confiretry"
         },
         "to": {
             "id": "4321"
         }
         }
       """
-    * set Payload.from.id = "Kore"+name
-    * def UserId5 = Payload.from.id
-    * print UserId5
-    * def ConsumerWebHookJWT = JavaClass.get('ConsumerWebHookJWT')
- 
-    * print ConsumerWebHookJWT
     Given url runtimeUrl
     Then path '/chatbot/hooks/'+streamId
     And request Payload
@@ -191,27 +210,91 @@ Feature: RunTime Scenarios
     Then status 200
     And print 'Response is: ', response
     
+     # confirmation entry prompt
     
+    * def streamId = JavaClass.get('streamId')
+    * def ConsumerWebHookJWT = JavaClass.get('ConsumerWebHookJWT')
+    * print streamId
+    * print ConsumerWebHookJWT
+    * def Payload =
+      """
+        {
+        "message": {
+            "text": "yes"
+        },
+        "from": {
+            "id": "Confiretry"
+        },
+        "to": {
+            "id": "4321"
+        }
+        }
+      """
+    Given url runtimeUrl
+    Then path '/chatbot/hooks/'+streamId
+    And request Payload
+    And header Authorization = 'bearer '+ConsumerWebHookJWT
+    And header Content-Type = 'application/json'
+    When method post
+    Then status 200
+    And print 'Response is: ', response
     
+     # Entry retry prompt
     
+    * def streamId = JavaClass.get('streamId')
+    * def ConsumerWebHookJWT = JavaClass.get('ConsumerWebHookJWT')
+    * print streamId
+    * print ConsumerWebHookJWT
+    * def Payload =
+      """
+        {
+        "message": {
+            "text": "test"
+        },
+        "from": {
+            "id": "Confiretry"
+        },
+        "to": {
+            "id": "4321"
+        }
+        }
+      """
+    Given url runtimeUrl
+    Then path '/chatbot/hooks/'+streamId
+    And request Payload
+    And header Authorization = 'bearer '+ConsumerWebHookJWT
+    And header Content-Type = 'application/json'
+    When method post
+    Then status 200
+    And print 'Response is: ', response
     
+     # Email prompt
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    * def streamId = JavaClass.get('streamId')
+    * def ConsumerWebHookJWT = JavaClass.get('ConsumerWebHookJWT')
+    * print streamId
+    * print ConsumerWebHookJWT
+    * def Payload =
+      """
+        {
+        "message": {
+            "text": "abc@gmail.com"
+        },
+        "from": {
+            "id": "Confiretry"
+        },
+        "to": {
+            "id": "4321"
+        }
+        }
+      """
+    Given url runtimeUrl
+    Then path '/chatbot/hooks/'+streamId
+    And request Payload
+    And header Authorization = 'bearer '+ConsumerWebHookJWT
+    And header Content-Type = 'application/json'
+    When method post
+    Then status 200
+    And print 'Response is: ', response
     
     

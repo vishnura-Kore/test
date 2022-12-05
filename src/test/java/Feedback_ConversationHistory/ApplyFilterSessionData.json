@@ -1,0 +1,30 @@
+{
+"filters": {
+"from": "2022-09-27T10:21:03.384Z",
+"to": "2022-09-28T10:21:03.384Z",
+"channels": [],
+"limit": 20,
+"skip": 0,
+"labels": [],
+"status": "all",
+"containmentType": "selfservice",
+"type": "interactive",
+"isDeveloper": true,
+"taskNames": [],
+"tags": {
+"and": []
+},
+"koreUIds": [],
+"channelUIds": [],
+"excludeUserIds": [],
+"excludeChannelUIds": [],
+"events": [],
+"feedback": [
+            {
+                "type": "NPS",
+                "operator": "eq",
+                "value": "10"
+            }
+        ]
+}
+}

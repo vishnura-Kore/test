@@ -44,6 +44,19 @@ Feature: MLUtterancesImportAPI with Positive and Negative Scenarios
     And match $..status == ["pending"]
     And match $..requestType == ["MLimport"]
 
+
+ * def sleep =
+      """
+      function(seconds){
+        for(i = 0; i <= seconds; i++)
+        {
+          java.lang.Thread.sleep(1*5000);
+          karate.log(i);
+        }
+      }
+      """
+* call sleep 10
+
   Scenario: Positive Scenario MLUtteranceTrain WithJSON File
     * def SanitystreamId = JavaClass.get('SanitystreamId')
     * def MLUtterenceID1 = JavaClass.get('MLUtterenceID1')
@@ -54,10 +67,10 @@ Feature: MLUtterancesImportAPI with Positive and Negative Scenarios
     When method get
     Then status 200
     And print 'Response is: ', response
-    And match $..status == ["pending"]
-    And match $..requestType == ["MLimport"]
+    #And match $..status == ["pending"]
+    #And match $..requestType == ["MLimport"]
 
-  Scenario: Positive Scenario MLUtteranceTrainStatusAPI With CSV File
+  Scenario: Positive Scenario MLUtteranceTrainStatusAPI With JSON File
     * def SanitystreamId = JavaClass.get('SanitystreamId')
     * def MLUtterenceID = JavaClass.get('MLUtterenceID')
     Given url publicUrl
@@ -68,6 +81,18 @@ Feature: MLUtterancesImportAPI with Positive and Negative Scenarios
     Then status 200
     And print 'Response is: ', response
     And match $..message == ["Training Queued."]
+    
+    * def sleep =
+      """
+      function(seconds){
+        for(i = 0; i <= seconds; i++)
+        {
+          java.lang.Thread.sleep(1*5000);
+          karate.log(i);
+        }
+      }
+      """
+* call sleep 10
 
   Scenario: Positive Scenario MLUtteranceTrainStatus With JSON File
     * def SanitystreamId = JavaClass.get('SanitystreamId')
@@ -75,7 +100,6 @@ Feature: MLUtterancesImportAPI with Positive and Negative Scenarios
     Then path '/public/bot/'+SanitystreamId+'/ml/train/status'
     And header auth = BotBuilderJWTToken
     And header Content-Type = 'application/json'
-    And retry until response.status == 'Finished' || response.status == 'failed'
     When method get
     Then status 200
     And print 'Response is: ', response

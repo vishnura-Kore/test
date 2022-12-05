@@ -14,6 +14,7 @@ Feature: Creating AppScopes in Bot Builder
     * def botadminUserID1 = JavaClass.get('botadminUserID1')
     * def botadminorgID1 = JavaClass.get('botadminorgID1')
     * def botadminaccesstokenuser1 = JavaClass.get('botadminaccesstokenuser1')
+     * def adminaccountID1 = JavaClass.get('adminaccountID1')
 
   Scenario: create appscope
     * def Payload =
@@ -34,6 +35,7 @@ Feature: Creating AppScopes in Bot Builder
     And request Payload
     And header Authorization = 'bearer '+botadminaccesstokenuser1
     And header Content-Type = 'application/json'
+    And header AccountId = adminaccountID1
     When method post
     Then status 200
     And print 'Response is: ', response
@@ -67,6 +69,7 @@ Feature: Creating AppScopes in Bot Builder
     And request Payload
     And header Authorization = 'bearer '+botadminaccesstokenuser1
     And header Content-Type = 'application/json'
+    And header AccountId = adminaccountID1
     And header x-http-method-override = 'PUT'
     When method post
     Then status 200

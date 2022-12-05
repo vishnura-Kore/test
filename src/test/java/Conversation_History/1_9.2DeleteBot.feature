@@ -1,4 +1,4 @@
-@kore12
+@R10.0
 Feature: Deleting the bot 
 
   Background: 
@@ -25,11 +25,14 @@ Feature: Deleting the bot
     * def ID3 = response[2]._id
     * def ID4 = response[3]._id
     * def ID5 = response[4]._id
+    * def ID6 = response[5]._id
     * JavaClass.add('ID1',ID1)
     * JavaClass.add('ID2',ID2)
     * JavaClass.add('ID3',ID3)
     * JavaClass.add('ID4',ID4)
     * JavaClass.add('ID5',ID5)
+     * JavaClass.add('ID6',ID6)
+    
     
     
     
@@ -40,12 +43,16 @@ Feature: Deleting the bot
     * def ID3 = JavaClass.get('ID3')
     * def ID4 = JavaClass.get('ID4')
     * def ID5 = JavaClass.get('ID5')
+    * def ID6 = JavaClass.get('ID6')
+    
     * def payload = read('Suspendtasks.json')
     * set payload[0].dialogId = ID1
     * set payload[1].dialogId = ID2
     * set payload[2].dialogId = ID3
     * set payload[3].dialogId = ID4
     * set payload[4].dialogId = ID5
+    * set payload[5].dialogId = ID6
+    
     Given path '/organization/'+botadminorgID1+'/workflows/updateTaskStatus'
     And header Authorization = 'bearer '+botadminaccesstokenuser1
     And header X-HTTP-Method-Override = 'put'
@@ -58,20 +65,20 @@ Feature: Deleting the bot
     And print response
    
     
-    #Scenario: Deleting the bot 
-    #* def streamId = JavaClass.get('streamId')
-    #Given path '/users/'+botadminUserID1+'/builder/streams/'+streamID
-    #And request
-    #"""
-      #{
-#
-      #}
-      #"""
-    #And header Authorization = 'bearer '+botadminaccesstokenuser1
-    #And header Content-Type = 'application/json'
-    #When method DELETE
-    #Then status 200
-    #And print 'Response is: ', response
+    Scenario: Deleting the bot 
+    * def streamId = JavaClass.get('streamId')
+    Given path '/users/'+botadminUserID1+'/builder/streams/'+streamId
+    And request
+    """
+      {
+
+      }
+      """
+    And header Authorization = 'bearer '+botadminaccesstokenuser1
+    And header Content-Type = 'application/json'
+    When method DELETE
+    Then status 200
+    And print 'Response is: ', response
     
  
  

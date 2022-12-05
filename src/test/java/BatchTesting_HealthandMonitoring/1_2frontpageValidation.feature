@@ -24,10 +24,49 @@ Feature: validating summary Details
     * JavaClass.add('SanityBotStreamID', SanityBotStreamID)
     * def SanityBotStreamID = JavaClass.get('SanityBotStreamID')
     * print SanityBotStreamID
-
-  Scenario: Summary of testsuite
+    
+    
+     Scenario: getting TestSuiteId
     * def SanityBotStreamID = JavaClass.get('SanityBotStreamID')
-    Given path '/stream/'+SanityBotStreamID+'/testsuitesummary/runs/tr-94d96821-5c45-5817-b7f6-b4143ea3b44e'
+    Given path '/stream/'+SanityBotStreamID+'/testsuite'
+    And header Authorization = 'bearer '+botadminaccesstokenuser1
+    And header Content-Type = 'application/json'
+    And header AccountId = adminaccountID1
+    And param runType = 'inDevelopment'
+    And header bot-language = 'en'
+    When method get
+    Then status 200
+    And print 'Response is: ', response
+    * def TestSuiteId = response[0]._id
+    * JavaClass.add('TestSuiteId', TestSuiteId)
+    * print TestSuiteId
+    
+    
+    
+    Scenario: getting testRunId 
+    * def SanityBotStreamID = JavaClass.get('SanityBotStreamID')
+     * def TestSuiteId = JavaClass.get('TestSuiteId')
+    Given path '/stream/'+SanityBotStreamID+'/testsuite/'+TestSuiteId+'/history'
+    And param offset = '0'
+    And param limit = '5'
+    And header Authorization = 'bearer '+botadminaccesstokenuser1
+    And header Content-Type = 'application/json'
+    And header AccountId = adminaccountID1
+    And param runType = 'inDevelopment'
+    And header bot-language = 'en'
+    When method get
+    Then status 200
+    And print 'Response is: ', response
+     * def testRunId = response.results[0]._id
+     * JavaClass.add('testRunId', testRunId)
+     * print testRunId
+    
+    
+ 
+  Scenario: Summary of testsuite
+   * def testRunId = JavaClass.get('testRunId')
+    * def SanityBotStreamID = JavaClass.get('SanityBotStreamID')
+    Given path '/stream/'+SanityBotStreamID+'/testsuitesummary/runs/'+testRunId
     And header Authorization = 'bearer '+botadminaccesstokenuser1
     And header Content-Type = 'application/json'
     And header AccountId = adminaccountID1

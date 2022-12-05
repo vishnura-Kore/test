@@ -64,6 +64,7 @@ Background:
     And request Payload
     And header Authorization = 'bearer '+accessToken
     And header Content-Type = 'application/json'
+     And header AccountId = adminaccountID1
     When method post
     Then status 200
     And print 'Response is: ', response
@@ -255,6 +256,7 @@ Background:
     And request Payload
     And header Authorization = 'bearer '+botadminaccesstokenuser1
     And header Content-Type = 'application/json'
+     And header AccountId = adminaccountID1
     When method post
     Then status 200
     And print 'Response is: ', response

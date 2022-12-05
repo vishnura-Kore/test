@@ -84,12 +84,15 @@ Background:
     When method get
     Then status 200
     And print response
-    * def value = $..mlConfigurations.NoneIntent
-    * match value == [true]
-    * def value = $..mlConfigurations.ML_Add_FAQS_To_NoneIntent
-    * match value == [true]
-    * def value = $..mlConfigurations.NoneIntentCustomTraining
-    * match value == [false]
+    * def value1 = response[0].mlConfigurations.NoneIntent
+    * print value1
+    * match value1 == true
+    * def value2 = response[0].mlConfigurations.ML_Add_FAQS_To_NoneIntent
+    * print value2
+    * match value2 == true
+    * def value3 = response[0].mlConfigurations.NoneIntentCustomTraining
+    * print value3
+    * match value3 == false
     
     Scenario: Delete the bot
      * def SanityBotStreamId = JavaClass.get('SanityBotStreamId')

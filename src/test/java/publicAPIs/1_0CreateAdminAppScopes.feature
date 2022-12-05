@@ -29,7 +29,7 @@ Feature: feature to Login into Bot Admin Console
 
   Scenario: create appscope
     * def JavaClass = Java.type('data.commonJava')
-    * def name = JavaClass.generateRandom('number')
+    * def name = JavaClass.generateRandom('string')
     * print name
     * def JavaClass = Java.type('data.HashMap')
     * def botadminUserID1 = JavaClass.get('botadminUserID1')

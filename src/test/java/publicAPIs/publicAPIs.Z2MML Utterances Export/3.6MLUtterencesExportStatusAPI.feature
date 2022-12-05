@@ -22,7 +22,7 @@ Feature: MLUtterancesExportStatusAPI with Positive and Negative Scenarios
     And print 'response is', response
     And match $..status == ["SUCCESS"]
     And match $..percentageComplete == [100]
-    And match response.downloadUrl contains "https://staging-bots.korebots.com/api/getMediaStream/market/"
+    #And match response.downloadUrl contains "https://staging-bots.korebots.com/api/getMediaStream/market/"
 
   Scenario: PositiveScenario....>>> MLUtterancesExportStatus API in CSV Format
     * def MlutterenceId1 = JavaClass.get('MlutterenceId1')
@@ -37,7 +37,7 @@ Feature: MLUtterancesExportStatusAPI with Positive and Negative Scenarios
     And print 'response is', response
     And match $..status == ["SUCCESS"]
     And match $..percentageComplete == [100]
-    And match response.downloadUrl contains "https://staging-bots.korebots.com/api/getMediaStream/market/"
+    #And match response.downloadUrl contains "https://staging-bots.korebots.com/api/getMediaStream/market/"
 
   Scenario: NegativeScenario....>>> MLUtterancesExportStatus API with invalid StreamId
     Given url publicUrl

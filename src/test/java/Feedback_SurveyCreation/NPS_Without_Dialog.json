@@ -1,0 +1,6 @@
+{
+    "name": "noDialogSurvey",
+    "type": "NPS",
+    "isEndOfConversation": true,
+    "createDialog": false
+}

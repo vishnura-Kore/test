@@ -1,0 +1,54 @@
+{
+    "query": {
+        "dataSet": "sanitytableView",
+        "select": [
+            "EmployeeDOB",
+            "EmployeeId",
+            "EmployeeName"
+        ],
+        "filterBy": {
+            "condition": "and",
+            "rules": [
+                {
+                    "field": "sanitytable1122.EmployeeName",
+                    "operator": "=",
+                    "type": "string",
+                    "value": "RAMA"
+                },
+                {
+                    "condition": "and",
+                    "rules": [
+                        {
+                            "field": "sanitytable1122.EmployeeDOB",
+                            "operator": "=",
+                            "type": "date",
+                            "value": "12/03/1997"
+                        },
+                        {
+                            "condition": "and",
+                            "rules": [
+                                {
+                                    "field": "sanitytable1122.EmployeeId",
+                                    "operator": "=",
+                                    "type": "number",
+                                    "value": "12345678"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "sortBy": "",
+        "groupBy": ""
+    },
+    "name": "SanityTableView",
+    "description": "creating Table view",
+    "botScopes": [],
+   "appScopes": [
+        {
+            "appId": "cs-f187846c-343f-5254-9dcf-259e46db56a0"
+        }
+    ],
+    "processappScopes": []
+}

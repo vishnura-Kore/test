@@ -21,9 +21,6 @@ Feature: Bot import Status API  with positive and negative Scenarios
     And print responseTime
     And print response
     * def PstreamId = response.streamId
-    #* def output = []
-     #And eval for(var i=0;i<response.statusLogs.length;i++) if(response.statusLogs[i].taskType.endsWith("Event")) output.add(response.statusLogs[i].status)
-    #* print output
     * JavaClass.add('PstreamId', PstreamId)
     * print PstreamId
     And match $..status contains ["success"]

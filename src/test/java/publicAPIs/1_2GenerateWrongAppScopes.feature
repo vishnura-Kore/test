@@ -27,7 +27,7 @@ Feature: feature to login into BAC
 
   Scenario: create appscope
     * def JavaClass = Java.type('data.commonJava')
-    * def name = JavaClass.generateRandom('number')
+    * def name = JavaClass.generateRandom('string')
     * print name
     * def JavaClass = Java.type('data.HashMap')
     * def botadminUserID1 = JavaClass.get('botadminUserID1')
@@ -61,9 +61,7 @@ Feature: feature to login into BAC
     * JavaClass.add('scopeclientSecret1', scopeclientSecret1)
     * JavaClass.add('scopeclientId1', scopeclientId1)
     * JavaClass.add('scopeappName', scopeappName)
-    * print scopeclientSecret1
-    * print scopeappName
-    * print scopeclientId1
+
 
   Scenario: Assiging appscopes
     * def JavaClass = Java.type('data.HashMap')
@@ -72,9 +70,6 @@ Feature: feature to login into BAC
     * def scopeclientId1 = JavaClass.get('scopeclientId1')
     * def botadminaccesstokenuser1 = JavaClass.get('botadminaccesstokenuser1')
     * def scopeappName = JavaClass.get('scopeappName')
-    * print  botadminUserID1
-    * print botadminorgID1
-    * print scopeclientId1
     * def Payload = read('AssingingWrongAppScopes.json')
     * set Payload.appName = scopeappName
     * print Payload

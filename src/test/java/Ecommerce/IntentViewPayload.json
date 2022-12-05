@@ -1,0 +1,10 @@
+{
+"filters": {
+"from":"AA",
+"to":"AA",
+"channels": ["ivr"],
+"language": ["en"],
+"sessionCategory": [0,1],
+"sessionStatus": "all"
+}
+}

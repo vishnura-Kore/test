@@ -1,4 +1,4 @@
-@runtime
+@R10.0
 Feature: Create labels for session
 
   Background: 
@@ -10,6 +10,7 @@ Feature: Create labels for session
     * def adminaccountID1 = JavaClass.get('adminaccountID1')
     * def botadminaccesstokenuser1 = JavaClass.get('botadminaccesstokenuser1')
     * def botadminUserID1 = JavaClass.get("botadminUserID1")
+    	* def sessionid1 = JavaClass.get('sessionid1')
 
   Scenario: To create labels
     Given path 'users/'+botadminUserID1+'/builder/streams/'+streamId+'/labels'
@@ -74,7 +75,7 @@ Feature: Create labels for session
    
    Scenario: Add Label to the Session 
    
-   * def sessionid = JavaClass.get("sessionid")
+   * def sessionid = JavaClass.get("sessionid1")
    * def labelid = JavaClass.get("labelid")
     Given path '/users/'+botadminUserID1+'/builder/streams/'+streamId+'/resource/'+sessionid
     And header accountid = adminaccountID1
@@ -104,3 +105,7 @@ Feature: Create labels for session
      When method delete
     Then status 200
     * print response
+    
+    
+ 
+   

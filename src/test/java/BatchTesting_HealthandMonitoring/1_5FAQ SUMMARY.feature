@@ -16,27 +16,26 @@ Background:
     * def FaqTPcount = JavaClass.get('FaqTPcount')
     * def FaqFPcount = JavaClass.get('FaqFPcount')
      * def FAQTotalCount = JavaClass.get('FAQTotalCount')
-    * print FAQTotalCount
-    * print FAQTotalCovered
-    * print FaqTPcount
-    * print FaqFPcount
+   * def testRunId = JavaClass.get('testRunId')
     
     
     
       Scenario: Testsuitesummary details
-     Given path '/stream/'+SanityBotStreamID+'/testsuitesummary/details'
-    And header Authorization = 'bearer '+botadminaccesstokenuser1
-    And header Content-Type = 'application/json'
-  And header accountid = adminaccountID1
-   And header bot-language = 'en'
-    And request 
-    """
+      * def Payload = 
+       """
  {
     "testRunId": "tr-94d96821-5c45-5817-b7f6-b4143ea3b44e",
     "runType": "inDevelopment",
     "type": "faq"
 }
     """
+      * set Payload.testRunId = testRunId
+     Given path '/stream/'+SanityBotStreamID+'/testsuitesummary/details'
+    And header Authorization = 'bearer '+botadminaccesstokenuser1
+    And header Content-Type = 'application/json'
+  And header accountid = adminaccountID1
+   And header bot-language = 'en'
+    And request Payload
     When method post
     Then status 200
     And print 'Response is: ', response

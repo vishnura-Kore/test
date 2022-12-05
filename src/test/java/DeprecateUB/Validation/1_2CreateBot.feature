@@ -8,6 +8,8 @@ Background:
     * def JavaClass = Java.type('data.HashMap')
     * def botadminUserID1 = JavaClass.get('botadminUserID1')
      * def botadminaccesstokenuser1 = JavaClass.get('botadminaccesstokenuser1')
+      * def adminaccountID1 = JavaClass.get('adminaccountID1')
+     
       
      Scenario: Getting StreamID 
     Then path '/users/'+botadminUserID1+'/builder/streams'
@@ -68,6 +70,7 @@ Background:
     And request Payload
     And header Authorization = 'bearer '+accessToken
     And header Content-Type = 'application/json'
+      And header AccountId = adminaccountID1
     When method post
     Then status 200
     And print 'Response is: ', response

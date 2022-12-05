@@ -9,6 +9,8 @@ Feature: Enabling Webhook channel and creating app
     * def botadminaccesstokenuser1 = JavaClass.get('botadminaccesstokenuser1')
     * def botadminUserID1 = JavaClass.get('botadminUserID1')
     * def streamId = JavaClass.get('streamId')
+     * def adminaccountID1 = JavaClass.get('adminaccountID1')
+    
   Scenario: creating  appscope
     
     * def name = JavaMethods.generateRandom('number')
@@ -30,6 +32,7 @@ Feature: Enabling Webhook channel and creating app
          "webhookUrl": ""
       }
       }
+     
       """
     * set Payload.appName = 'Test'+name
     * set Payload.bots[0] = streamId
@@ -38,6 +41,7 @@ Feature: Enabling Webhook channel and creating app
     And request Payload
     And header Authorization = 'bearer '+botadminaccesstokenuser1
     And header Content-Type = 'application/json'
+    And header AccountId = adminaccountID1
     When method post
     Then status 200
     And print 'Response is: ', response

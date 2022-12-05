@@ -1,4 +1,4 @@
-@runtime
+@R10.0
 Feature: Enabling Webhook channel and creating app
 
   Background: 
@@ -10,7 +10,6 @@ Feature: Enabling Webhook channel and creating app
     * def botadminUserID1 = JavaClass.get('botadminUserID1')
     * def streamId = JavaClass.get('streamId')
   Scenario: creating  appscope
-    
     * def name = JavaMethods.generateRandom('number')
     * print name
     * def Payload =
@@ -71,7 +70,7 @@ Feature: Enabling Webhook channel and creating app
       """
     * set Payload.app.appName = 'apppublic'+name
     * set Payload.app.clientId = smartclientId1
-    * set Payload.displayName = '	webhook'+name
+    * set Payload.displayName = 'webhook'+name
     * print Payload
     Given path '/users/'+botadminUserID1+'/builder/streams/'+streamId+'/channels/ivr'
     And request  Payload

@@ -78,7 +78,6 @@ Feature: Import Bot into an Existing Bot with positive and negative Scenarios
     And retry until response.status == 'success' || response.status == 'failed'
     When method get
     Then status 200
-    And print responseTime
     And print response
     * def PstreamId = response.streamId
     * JavaClass.add('PstreamId', PstreamId)

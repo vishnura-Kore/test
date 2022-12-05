@@ -1,52 +1,44 @@
 @kore
 Feature: To Disable the None and FAQ Intent
   To validate the get end point response
-
-  Background: Setup the base url
-    Given url 'https://eu-bots.kore.ai'
-
-  Scenario: To Login and Validate the Primary Admin Status
-    Given path '/api/1.1/oauth/token'
+Background: 
+    * url appUrl
+    * def userId = ids.userId
+    * def accessToken = ids.accessToken
+    * def JavaClass = Java.type('data.HashMap')
+    * def botadminUserID1 = JavaClass.get('botadminUserID1')
+    * def botadminorgID1 = JavaClass.get('botadminorgID1')
+    * def botadminaccesstokenuser1 = JavaClass.get('botadminaccesstokenuser1')
+    * def adminaccountID1 = JavaClass.get('adminaccountID1')
+   
+    
+   Scenario: creating a bot
+    * def JavaClass = Java.type('data.commonJava')
+    * def name = JavaClass.generateRandom('number')
+    * print name 
+    * def Payload = read('CreateBot.json')
+    * set Payload.name = "Sanity"+name
+    * print  Payload
+    Given path 'users/'+userId+'/builder/streams' 
+    And request Payload
+    And header Authorization = 'bearer '+botadminaccesstokenuser1
     And header Content-Type = 'application/json'
-    And header bot-language = 'en'
-    * def loginRequestPayload = read("LoginRequestPayload.json")
-    And request loginRequestPayload
     When method post
     Then status 200
-    And print response
-    * def accountID = response.authorization.accountId
-    * def accessToken = response.authorization.accessToken
-    * def userId = response.userInfo.id
-    * def orgID = response.userInfo.orgID
-    And print "Primary Account ID ==> ", accountID
-    And print "Primary Access Token ==> ", accessToken
-    And print "Primary UserID ==> ", userId
-    And print "Primary OrgID ==> ", orgID
+    And print 'Response is: ', response
+    And match response.name == Payload.name
+    * def SanityBotStreamId = response._id
+    * print 'SanityBot streamID is:',SanityBotStreamId
+    * def JavaClass = Java.type('data.HashMap')
+    * JavaClass.add('SanityBotStreamId', SanityBotStreamId)
+    * JavaClass.add('userId', userId)
     
-    #Creation of Bot
-    Given path '/api/1.1/users/'+userId+'/builder/streams'
-    And header Content-Type = 'application/json'
-    And header bot-language = 'en'
-    And header Authorization = 'bearer '+accessToken
-    And header AccountId = accountID
-    And header app-language = 'en'
-    * def botCreationPayload = read("BotCreation.json")
-    And request botCreationPayload
-    When method post
-    Then status 200
-    And print response
-    * def botID = response._id
-    And print "Stream ID ==> ", botID
-    * def botName = response.name
-    
-    #Marker Streams API
-    Given path '/api/1.1/market/streams'
-    And header Content-Type = 'application/json'
-    And header Authorization = 'bearer '+accessToken
-    And header AccountId = accountID
-    And request
-      """
-      {
+    Scenario: getting market streams api
+    * def SanityBotStreamId = JavaClass.get('SanityBotStreamId')
+    Given path '/market/streams'
+    * def payload = 
+     """
+     {
       "_id": '#(botID)',
       "name": '#(botName)',
       "description": '#(botName)',
@@ -69,29 +61,39 @@ Feature: To Disable the None and FAQ Intent
       "sendVcf": false
       }
       """
+     * set payload._id = SanityBotStreamId
+    And header Content-Type = 'application/json'
+    And header Authorization = 'bearer '+botadminaccesstokenuser1
+    And header AccountId = adminaccountID1
+    And request payload
     When method post
     Then status 200
     And print response
     
-    #Getting the Model Params Value
-    Given url 'https://staging-bots.korebots.com/api/1.1/builder/streams/'+botID+'/mlparams?isDeveloper=true&reset=:reset&resetkey=:resetkey'
+    Scenario: Getting the Model Params Value
+     * def SanityBotStreamId = JavaClass.get('SanityBotStreamId')
+    Given path '/builder/streams/'+SanityBotStreamId+'/mlparams'
     And header Content-Type = 'application/json'
     And header Authorization = 'bearer '+accessToken
-    And header AccountId = accountID
+    And header AccountId = adminaccountID1
     And header app-language = 'en'
     And header bot-language = 'en'
+    And param isDeveloper = 'true&reset=:reset&resetkey=:resetkey'
     And request
     When method get
     Then status 200
     And print response
-    * def paramID = response[1]._id
+    * def paramID = response[0]._id
+    * JavaClass.add('paramID', paramID)
     And print "Param ID ==> ", paramID
     
-    #Disable the None Intent and FAQ Intent and Enable the Customize None Intent
-    Given url 'https://staging-bots.korebots.com/api/1.1/builder/streams/'+botID+'/customModelParams/'+paramID+''
+    Scenario: Disable the None Intent and FAQ Intent and Enable the Customize None Intent
+     * def SanityBotStreamId = JavaClass.get('SanityBotStreamId')
+      * def paramID = JavaClass.get('paramID')
+    Given path '/builder/streams/'+SanityBotStreamId+'/customModelParams/'+paramID
     And header Content-Type = 'application/json'
     And header Authorization = 'bearer '+accessToken
-    And header AccountId = accountID
+    And header AccountId = adminaccountID1
     And header app-language = 'en'
     And header bot-language = 'en'
     And header X-HTTP-Method-Override = 'put'
@@ -145,29 +147,33 @@ Feature: To Disable the None and FAQ Intent
     Then status 200
     And print response
       
-    #None Intent Check for New Bots
-    Given url 'https://staging-bots.korebots.com/api/1.1/builder/streams/'+botID+'/mlparams?isDeveloper=true&reset=:reset&resetkey=:resetkey'
+    Scenario: None Intent Check for New Bots
+     * def SanityBotStreamId = JavaClass.get('SanityBotStreamId')
+     * def paramID = JavaClass.get('paramID')
+    Given path '/builder/streams/'+SanityBotStreamId+'/mlparams'
     And header Content-Type = 'application/json'
     And header bot-language = 'en'
     And header bot-language = 'en'
-    And header AccountId = accountID
+    And header AccountId = adminaccountID1
+    And param isDeveloper = 'true&reset=:reset&resetkey=:resetkey'
     And header Authorization = 'bearer '+accessToken
     And header state = 'configured'
     When method get
     Then status 200
     And print response
-    * def result2 = response[1].mlConfigurations.NoneIntent
-    * match result2 == false
-    * def result3 = response[1].mlConfigurations.ML_Add_FAQS_To_NoneIntent
-    * match result3 == false
-    * def result4 = response[1].mlConfigurations.NoneIntentCustomTraining
-    * match result4 == true
+    * def result2 = $..NoneIntent
+    * match result2 == [false]
+    * def result3 = $..ML_Add_FAQS_To_NoneIntent
+    * match result3 == [false]
+    * def result4 = $..NoneIntentCustomTraining
+    * match result4 == [true]
     
-    #Delete the bot
-    Given url 'https://staging-bots.korebots.com/api/1.1/users/'+userId+'/builder/streams/'+botID+''
+    Scenario: Delete the bot
+     * def SanityBotStreamId = JavaClass.get('SanityBotStreamId')
+    Given path '/users/'+userId+'/builder/streams/'+SanityBotStreamId
     And header Content-Type = 'application/json'
-    And header AccountId = accountID
-    And header Authorization = 'bearer '+accessToken
+    And header AccountId = adminaccountID1
+    And header Authorization = 'bearer '+botadminaccesstokenuser1
     And header state = 'configured'
     And header X-HTTP-Method-Override = 'delete'
     When method post

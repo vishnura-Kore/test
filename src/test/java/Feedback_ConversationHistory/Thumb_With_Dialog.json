@@ -1,0 +1,22 @@
+{
+    "name": "thumbSurvey",
+    "type": "THUMB",
+    "isEndOfConversation": true,
+    "createDialog": true,
+    "dialogName": "thumbdialog3",
+    "primaryQuestion": {
+        "message": "How likely are you to recommend our product?",
+        "meta": {
+            "0": "Extremely Unlikely",
+            "1": "Extremely likely"
+        }
+    },
+    "followupQuestion": [
+        {
+            "userScore": 0,
+            "message": "Please tell us what you did not like.",
+            "rule": "lt"
+        }
+    ],
+    "ackmessage": "Thank you for the valuable feedback."
+}

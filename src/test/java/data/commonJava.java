@@ -21,12 +21,33 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
-
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 public class commonJava {
 	
-	
-
 		public static String getRequiredDate(int incrementDays, String expectedDateFormat, String timeZoneId)
 		{
 			try 
@@ -87,34 +108,92 @@ public class commonJava {
 				return null;
 			}
 		}
-	public static String generateRandom(String type ){
-		String generatedRandom = null;
-		try{
-		switch(type){
-		case "email":
-	String generatedString = RandomStringUtils.randomAlphabetic(6);
-	generatedRandom="QAAuto_"+generatedString+ "@kore.com";
-		break;
-		case "string":
-		String generatedStr = RandomStringUtils.randomAlphabetic(6);
-	double randVal = (Math.random()) * 100;
-		int generatednum = (int) randVal;
-		generatedRandom="Sanity"+generatedStr+generatednum;
-		break;
-		case "number":
-		double randVal1 = (Math.random()) * 10000;
-		int randomId = (int) randVal1;
-		generatedRandom = Integer.toString(randomId);
-		break;
+
+		public static String generateRandom(String type) {
+			String generatedRandom = null;
+			try {
+				switch (type) {
+				case "email":
+					String generatedString = RandomStringUtils.randomAlphabetic(6);
+					generatedRandom = "QAAuto_" + generatedString + "@kore.com";
+					break;
+				case "string":
+					String generatedStr = RandomStringUtils.randomAlphabetic(6);
+					double randVal = (Math.random()) * 100;
+					int generatednum = (int) randVal;
+					generatedRandom = "Sanity" + generatedStr + generatednum;
+					break;
+				case "number":
+					double randVal1 = (Math.random()) * 10000;
+					int randomId = (int) randVal1;
+					generatedRandom = Integer.toString(randomId);
+					break;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return generatedRandom;
 		}
-		}catch(Exception e) {
-		e.printStackTrace();
+		
+	    public static void downloadUsingStream(String urlStr, String file) throws IOException {
+	        URL url = new URL(urlStr);
+	        BufferedInputStream bis = new BufferedInputStream(url.openStream());
+	        FileOutputStream fis = new FileOutputStream(file);
+	        byte[] buffer = new byte[1024];
+	        int count=0;
+	        while((count = bis.read(buffer,0,1024)) != -1)
+	        {
+	            fis.write(buffer, 0, count);
+	        }
+	        fis.close();
+	        bis.close();
+	    }
+	    
+	    
+	    public static void unzip(String zipFilePath, String destinationFilePath) throws IOException {
+			File destinationDirectoryFolder = new File(destinationFilePath);
+			if (destinationDirectoryFolder.exists()) {
+				deleteDirectory(destinationDirectoryFolder);
+				destinationDirectoryFolder.delete();
+			}
+			destinationDirectoryFolder.mkdir();
+			byte[] buffer = new byte[1024];
+			ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFilePath));
+			ZipEntry entry = zis.getNextEntry();
+			while (entry != null) {
+				String filePath = destinationFilePath + File.separator + entry.getName();
+				System.out.println("Unzipping " + filePath);
+				if (!entry.isDirectory()) {
+					FileOutputStream fos = new FileOutputStream(filePath);
+					int len;
+					while ((len = zis.read(buffer)) > 0) {
+						fos.write(buffer, 0, len);
+					}
+					fos.close();
+				} else {
+					File file = new File(filePath);
+					file.mkdir();
+				}
+				zis.closeEntry();
+				entry = zis.getNextEntry();
+
+			}
+			zis.closeEntry();
+			zis.close();
+			System.out.println("Unzipping complete...");
 		}
 
-		return generatedRandom;
+		public static void deleteDirectory(File file) {
+			for (File subfile : file.listFiles()) {
+				if (subfile.isDirectory()) {
+					deleteDirectory(subfile);
+				}
+				subfile.delete();
+			}
+		}
 	}
-	
-	}
+
 
 	 
 	
