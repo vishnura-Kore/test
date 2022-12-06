@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Build') { 
             steps {
-            	bat dir("com.CFrame") { sh "pwd" }
+            	bat dir("com.CFrame")
                 bat "echo hello Build"
                 bat 'mvn clean compile'
             }
