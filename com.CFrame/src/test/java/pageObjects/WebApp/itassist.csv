@@ -1,0 +1,10 @@
+ParameterName,LocatorType,Locator
+itassist,url,https://itassist-pilot.kore.ai/workbench
+username,name,emailPhone
+CtnBtn,classname,continueBtn
+password,name,pass
+login_btn,xpath,//button[contains(text(),'Login')]
+Adapter,xpath,//div[contains(text(),'Adapters')]
+Dashboard_iframe,id,standardDashBoardFrame
+Title,xpath,//div[contains(text(),'Adapters') and @class='title']
+IT_HR,xpath,//div[contains(text(),'IT_HR') and @class='title']

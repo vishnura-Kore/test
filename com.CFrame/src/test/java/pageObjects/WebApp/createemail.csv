@@ -1,0 +1,43 @@
+ParameterName,LocatorType,Locator
+createemail,url,https://getnada.com/
+addemail,xpath,//*[contains(text(),'Add inbox')]
+username,id,grid-first-name
+Add_button,xpath,//*[contains(text(),'Add now')]
+kore,url,https://preprod-bots.korebots.com/botbuilder
+username_kore,xpath,//input[@name="emailPhone"]
+password,xpath,//input[@placeholder="Password"]
+ContBtn,classname,continueBtn
+dropdown,tagname,select
+EmailBtn,classname,emailBTN
+Firstname,name,koreFN
+Password,xpath,//*[@ng-model="pass"]
+Resendcode,xpath,//*[contains(text(),"Resend Code")]
+Subject,xpath,//*[text()='Subject']
+Create_acct,xpath,//*[text()='Create Account']
+Click_email,xpath,//a[contains(text(),'Kore.ai: Please confirm your email a')]
+Iframe,id,the_message_iframe
+Code_xp,xpath,//p[@style="padding:10px;background:#f1e9fb;font-size:16px;text-align: center;"]
+login,xpath,//*[text()='Login']
+Industry,xpath,//*[contains(@ng-click,'indusEle')]
+Department,xpath,//*[contains(@ng-click,'deptEle')]
+E-Commerce,xpath,//*[contains(text(),'E-Commerce')]
+Engg,xpath,//*[contains(text(),'Engineering')]
+Continue_onboard,xpath,//*[@ng-click="sendProfileData()"]
+search_acc,classname,inputFiled
+create_new,xpath,//*[@ng-click="setView('createWorkpace')"]
+workspace_name,xpath,//input[@placeholder='Workspace name']
+Invite_email,id,tagInput
+Continue_work,xpath,//*[@ng-click="sendProfileData(true)"]
+welcome,xpath,//*[text()="Welcome to the Kore.ai XO Platform"]
+skip,classname,skipLink
+invite,xpath,//button[@ng-click='inviteDeveloper()']
+Invite_input,id,tagInput
+Invite_btn,xpath,//*[@ng-click="inviteShareDeveloper()"]
+Gotoinbox,xpath,//*[text()='Go Back to Inbox']
+Invite_ok,xpath,//*[@ng-click="closeInviteSent()"]
+Accept,xpath,//a[contains(text(),'Accept')]
+Profile,classname,accountsListingDropdown
+Logout,xpath,//li[@ng-click="logOut()"]
+invite_email,xpath,//a[contains(text(),'has invited you to coll')]
+invite_landing,xpath,//*[contains(text(),'Welcome to Kore.ai')]
+WS_name,classname,wsName

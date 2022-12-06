@@ -1,0 +1,27 @@
+ParameterName,LocatorType,Locator
+Mock_scense,xpath,//div[text()='Mock Scenes']
+Create_scene,xpath,//button[contains (@class, 'addBTN')]
+Scren_name,id,_createDialog
+Description,name,flowTaskDesc
+Procced,xpath,//button[@ng-click="proceedCreateScene()"]
+storyBoardFrame,id,storyBoardFrame
+user,xpath,//button[text()="User"]
+Note,xpath,//button[contains (text(), 'Note')]
+Bot,xpath,//button[text()="Bot"]
+Input_chat,name,storyMainChatInputContainer
+story_menu,id,popOverEvent_conversationalSkillsstoryboard
+Note_src,xpath,//*[contains(@src,"assets/images/noteTagnew.png")]
+text_area,name,comment
+Post,xpath,//button[text()="Post"]
+Template,id,templatesDrop
+quick_reply,xpath,//i[contains(@class,"bxpw-icon-temp-quickreply")]
+Quick_text,xpath,//textarea[contains(@class,"kr-textarea")]
+Yes_btn,xpath,(//input[contains(@class,"btnTextInput")])[1]
+No_btn,xpath,(//input[contains(@class,"btnTextInput")])[2]
+Quick_done,xpath,//div[@class="btnsFooter"]/button[text()="Done"]
+Chat_no,xpath,//span[contains(@class,"quickreplyText")][text()="No"]
+linkmsg,xpath,//*[name()='svg']//*[local-name()='text']//*[text()="What can i do for you" and @x='0']
+Link_yes,xpath,//div[@class="modal-footer"]/button[text()="Yes"]
+No_msg,xpath,//span[contains(@class,"ng-star-inserted")][text()="No"]//ancestor::*[contains(@class,"mainBubbleHandle")]/div/div[2]
+Back,xpath,//i[contains(@class,"bxpw-icon-crrot-left")]
+circle_click,xpath,(//*[local-name()='g' and @class='node-button-g'])[11]//*[@class='node-button-circle']

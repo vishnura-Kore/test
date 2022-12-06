@@ -1,0 +1,17 @@
+ParameterName,LocatorType,Locator
+Kore_applications,url,https://qa1-bots.kore.ai/botbuilder/login
+username,xpath,//input[@name="emailPhone"]
+password,xpath,//input[@placeholder="Password"]
+Login,xpath,//button[text()="Login"]
+ContinueBtn,xpath,//button[@class="continueBtn"]
+Kore_logo,xpath,//img[@class="logoIcon"]
+New_bot,xpath,//span[text()='New Bot']
+Start_from_scratch,xpath,//div[text()='Start from Scratch'][@class="m-title ng-binding"]
+Bot_name,id,arabicInput
+Create,xpath,//button[text()='Create']
+NewBotButton,xpath,//span[contains(text(),'New Bot')]
+Import,xpath,//div[text()='Import a Bot']
+Bot_name,id,arabicInput
+StartFromScratchButton,xpath,//div[contains(text(),'Start from Scratch')]
+CreateButton,xpath,//button[normalize-space()='Create']
+Build,xpath,//div[text()='Build']

@@ -1,0 +1,11 @@
+ParameterName,LocatorType,Locator
+workB,url,https://bankassist.kore.ai/workbench/login
+username,name,emailPhone
+cont,xpath,//button[text()='Continue']
+pass,name,pass
+login,xpath,//button[text()='Login']
+Loading,xpath,//span[contains(text(),'Loading dashboard widgets')]
+Config,xpath,//div[text()='Configurations']
+Transaction_Codes,id,popOverEvent_fiPersonalizationtransactionCodes
+Checking,xpath,//div[text()='Checking']//parent::div
+Bankassist,xpath,//div[text()='BankAssist']

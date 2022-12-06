@@ -1,0 +1,11 @@
+ParameterName,LocatorType,Locator
+Kore_demo_login,url,https://qa1-bots.kore.ai/botbuilder/login
+ContBtn,classname,continueBtn
+username,xpath,//input[@name="emailPhone"]
+password,name,pass
+Kore_logo,classname,logoIcon
+VA,id,virtualAsstTab
+PA,id,koreProcessAppsTab
+Search,xpath,//input[contains(@class,'fsynSearchInput') and @placeholder="Search"]
+My_bot,xpath,(//span[text()='My 1st bot'])[2]
+Check_my_bot,xpath,//div[@tooltip="My 1st bot"]

@@ -1,0 +1,45 @@
+ParameterName,LocatorType,Locator
+Ecom,url,https://qa1-bots.kore.ai/botbuilder/login
+username,xpath,//input[@name="emailPhone"]
+password,xpath,//input[@placeholder="Password"]
+Login,xpath,//button[@class="btn btn-primary"]
+ContinueBtn,xpath,//button[@class="continueBtn"]
+Kore_logo,xpath,//img[@class="logoIcon"]
+NewBotButton,xpath,//span[contains(text(),'New Bot')]
+Import,xpath,//div[text()='Import a Bot']
+Bot_name,id,arabicInput
+StartFromScratchButton,xpath,//div[contains(text(),'Start from Scratch')]
+CreateButton,xpath,//button[normalize-space()='Create']
+Build,xpath,//div[text()='Build']
+Deploy_menu,xpath,//li[@ng-click="callbacks.navigateTo('deploy')"]
+Channels,xpath,//*[@id="menuHeader_channles"]/h4/a
+Web_mobile_client,xpath,//*[@id="rightPanelScrollContents"]/div[3]/div/bot-channels/div[2]/div/div/div[1]/ng-container/div[2]/div/div[2]/span[2]
+Web_mobile_client1,xpath,(//span[contains(@ng-if, "channel.name !== 'Webhook")])[2]
+Enable,xpath,//div[@class="slider"]
+Save_web,xpath,//button[@ng-click="saveRTM()"]
+Save_ok,xpath,//button[text()="OK"]
+Config_save,xpath,//*[@class='btn btn-primary']
+Publish,xpath,//*[@id="menuHeader_publish"]/h4/a
+Proceed,xpath,//button[@ng-click="nextStep()"]
+text_area,xpath,//textarea[@ng-model="botPublishObject.upgradeVersionComment"]
+Confirm,xpath,//button[@ng-click="confirm()"]
+plan,xpath,(//button[@class="p-pricing-price-btn ng-binding"])[2]
+Amount_usd,xpath,(//input[@placeholder="Amount in USD"])[1]
+Authorize_Payment,xpath,//button[@ng-click="checkQuantityPrice()"]
+submit_order,xpath,//button[@name="submit-button"]
+PayDone,xpath,//button[@ng-click="paymentDone()"]
+close_pay,xpath,(//button[text()='Close'])[1]
+payProIframe,id,payProIframe
+sreach,xpath,(//input[@type='text'])[2]
+My_1st,xpath,//*[@id="botsFormDir"]/bots-content-panel/div[1]/div[1]/ng-transclude/div/div[2]/div/div/div[1]/div[3]/div/div/div[4]/h1/span
+Redirect,xpath,//span[@tooltip="Redirect"]
+chat,xpath,//div[@class="chatInputBox"]
+Channel_search,classname,focusNameSearch
+Profile,xpath,//button[contains(@class,"accountsListingDropdown")]
+Logout,xpath,//li[@ng-click="logOut()"]
+Manage,xpath,//li[@ng-click="callbacks.navigateTo('manage')"]
+Std_plan,xpath,(//div[contains(text(),"Standard")])[1]
+Credit_status_100,xpath,(//div[contains(text(),"$100")])[1]
+Allowed_req_10000,xpath,(//div[contains(text(),"10,000")])[1]
+Plan_usage,xpath,//a[contains(text(),"Plan & Usage")]
+Cancel_home,xpath,//button[@ng-click="goToHome()"]

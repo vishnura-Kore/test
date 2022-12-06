@@ -1,0 +1,58 @@
+ParameterName,LocatorType,Locator
+Dialog_menu,id,popOverEvent_conversationalSkillsdialogTasks
+create_dialog_button,xpath,.//div[@class='creationButton']/button[text()='Create Dialog']
+Dialog_task_title,xpath, //p[contains(text(),'Dialog Tasks')][contains(@class,"pageTitle")]
+DialogFrame,id,dialogIFrame
+Zoom_out,xpath,//i[@ngbtooltip="Zoom Out"]
+intent_name,id,_createDialog
+intent_description,xpath,.//input[contains(@name,' flowTaskDesc')]
+dialog_proceed_button,xpath,.//div[@class='buttonContainer']/button[text()='Proceed']
+Dialog_welcome,xpath,//h3[contains(text(),'Conversation Driven Dialog Builder')]
+Welcome_next,classname,inmplayer-popover-button-next
+Welcome_close,xpath,//div[text()='Close']
+Message_menu,xpath,//span[(text()='Message')]
+CheckBalance_title,xpath,//span[@title="Check Balance"]
+check_header_intent,xpath,//span[@title="Check Balance"]//parent::div/following-sibling::div/span[@title='Intent']
+Add_node,xpath,//span[@class="plus ng-star-inserted"]
+botaction_close,xpath,//div[contains(@class,'grouping-wrp')]/i[@class="bxpw-icon-close"]
+AddtoBotaction_node,xpath,(//span[@class="plus ng-star-inserted"])[1]
+Act_bot_add,xpath,//div[contains(@class,"sub-title")]/span[contains(@title,"BotAction")]//following::div[17]/span[contains(@class,'plus')]
+Node_name,xpath,//input[@placeholder="Name"]
+Node_display,xpath,//input[@placeholder="Display Name"]
+Entity_type,id,entityType
+Number,xpath,//button[text()='Number' and @class="dropdown-item ng-star-inserted"]
+EntityTyp_search,xpath,(//input[contains(@class,'input-search') and @placeholder="Search"])[1]
+OK,xpath,//button[text()='Ok'][@class='btn kr-btn-primary deleteConfirm']
+User_prompt,xpath,(//textarea[@placeholder="Add plain text prompt"])[1]
+Manage_msg,xpath,(//span[contains(@class,'actionLink') and text()='Manage '])[1]
+Select_channel,xpath,(//*[@id='channel'])[2]
+Email_channel,xpath,(//button[(text()='Email')])[5]
+Channel_prompt_msg,classname,ace_text-input
+check_sendbyemail,xpath,//mat-panel-title[contains(text(),'Please send your Account ID in Email')]
+Add_user_prompt,xpath,(//div[contains(text(),'Add User Prompts')])[1]
+Back_arrow_left,xpath,//div[@class="headerMenuTitleLeft"]/i[@class='bxpw-icon-crrot-left']
+Check_entity,xpath,//h5[contains(@title,"Entity ")]
+Instance_prop,xpath,//button[@title="INSTANCE PROPERTIES"]
+default_try,id,defaultMaxretry
+Select_3,xpath,//button[@class="dropdown-item ng-star-inserted" and text()='3']
+Yes_radio,xpath,//label[@for="yes" and @class="radio-custom-label"]
+Connections,classname,bxpw-icon-connections
+Connections_title,xpath,//div[text()="Connections" and @class="headerleft"]
+If_context,xpath,(//div[@class="connectionProperty cursorMove ng-star-inserted"])[1]
+Delete_if_context,xpath,(//div[contains(@class,'connectionProperty ')]/i[contains(@class,"bxpw-icon-delete")])[1]
+Else_context,xpath,//div[contains(@class,'addIFConnection')]//following-sibling::div
+Delete_if_else,xpath,(//div[contains(@class,'connectionProperty ')]/i[contains(@class,"bxpw-icon-delete")])
+Yes_node,xpath,(//span[contains(@class,"plus ng-star-inserted")])[1]
+No_node,xpath,(//span[contains(@class,"plus ng-star-inserted")])[2]
+Add_script_node,xpath,//div[contains(@class,'bot-action-new-conn')]/span[@class="plus"]
+Botaction_title,xpath,//*[contains(text(),"Bot Action") and @class='title']
+Service_title ,xpath,//*[contains(text(),"Service") and @class='title']
+Define_request,xpath,//div[contains(text(),"Define Request")]
+Request_url,id,enter-request-url
+DefineRequest_page,xpath,//*[contains(text(),"Define Request") and @class='taskName']
+Request_save,xpath,//button[contains(text(),"Save") and @class='bx-pw-btnPrimary']
+Close_botaction,xpath,//div[@class="node-wrp"]/div/i[@class='bxpw-icon-close']
+Panel_close,classname,property-panel-action-close
+Services,xpath,//*[text()='Service ']
+Conn_rules,xpath,//button[@id='defaultconnection']
+End_of_dialog,xpath,//button[text()='End of Dialog']

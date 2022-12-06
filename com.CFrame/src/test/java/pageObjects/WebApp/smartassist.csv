@@ -1,0 +1,6 @@
+ParameterName,LocatorType,Locator
+smartassist,url,https://uat-smartassist.kore.ai
+username,name,emailPhone
+password,name,pass
+ContinueBtn,classname,continueBtn
+Sign_in,xpath,//*[text()='Sign in']

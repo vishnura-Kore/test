@@ -1,0 +1,3 @@
+ParameterName,LocatorType,Locator
+Summary_menu,xpath,//a[contains(text(),'Summary')]
+My_bot,xpath,//h2[contains(text(),'My 1st bot')]

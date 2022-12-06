@@ -1,0 +1,63 @@
+ParameterName,LocatorType,Locator
+help_icon,classname,gHelpLink
+Topic_guide,xpath,//span[text()="Topic Guide" and @class='leftMenuText ng-binding']
+HelpFrame,id,topicGuideIframe
+Help_close,classname,btx-compress
+storyboard,id,popOverEvent_conversationalSkillsstoryboard
+Dialogtask,id,popOverEvent_conversationalSkillsdialogTasks
+KG,id,popOverEvent_conversationalSkillsknowledgeCollection
+Alert,id,popOverEvent_conversationalSkillsalertTasks
+Smalltalk,id,popOverEvent_conversationalSkillssmallTalk
+DigitalSkill,id,menuHeader_digitalSkills
+digitalForms,id,popOverEvent_digitalSkillsuiForms
+digitalView,id,popOverEvent_digitalSkillswidgets
+NL,id,menuHeader_training
+Training,id,popOverEvent_trainingmachineLearningUtterances
+Thresholds,id,popOverEvent_trainingmlThresholds
+Advsetting,id,popOverEvent_trainingnlAdvancedSettings
+intelligence,id,menuHeader_intelligence
+Event,id,popOverEvent_intelligenceeventsManage
+Manage_interrupt,id,popOverEvent_intelligenceadvancedSettings
+Amend_entity,id,popOverEvent_intelligenceamendEntity
+multiIntentDetection,id,popOverEvent_intelligencemultiIntentDetection
+sentimentManagement,id,popOverEvent_intelligencesentimentManagement
+standardResponses,id,popOverEvent_intelligencestandardResponses
+Testing,id,menuHeader_botTesting
+Testing_train,id,popOverEvent_botTestingtestTrain
+Batch_test,id,popOverEvent_botTestingbatchTesting
+ConversationTesting,id,popOverEvent_botTestingconversationTesting
+configurations,id,menuHeader_configurations
+Gen_setting,id,popOverEvent_configurationsgeneralSettings
+Lang,id,popOverEvent_configurationslanguageManagement
+PII,id,popOverEvent_configurationsIIPMasking
+Bot_fun,id,popOverEvent_configurationsbotFunctions
+authorization,id,popOverEvent_configurationsauthorization
+Msg_session,id,popOverEvent_configurationsmanageSessions
+Env_variable,id,popOverEvent_configurationsvariableManagement
+configurationsvariableManagement,id,popOverEvent_configurationsvariableManagementContent
+Channel,id,menuHeader_channles
+Deploy_menu,xpath,//li[@ng-click="callbacks.navigateTo('deploy')"]
+publish,id,menuHeader_publish
+Integrations,id,menuHeader_apiExtensions
+AgentTransfer,id,popOverEvent_apiExtensionsagentTransfer
+Bot_kit,id,popOverEvent_apiExtensionsbotkitSDK
+webMobileSDK,id,popOverEvent_apiExtensionswebMobileSDK
+Manage_app,id,popOverEvent_apiExtensionsapps
+API_score,id,popOverEvent_apiExtensionsmanageApps
+botManagement,id,menuHeader_botManagement
+Bot_version,id,popOverEvent_botManagementbotVersion
+ImportExport,id,popOverEvent_botManagementbotImportExport
+Delete_bot,id,popOverEvent_botManagementdeleteBot
+Change_log,id,menuHeader_changeLogs
+Manage,xpath,//li[@ng-click="callbacks.navigateTo('manage')"]
+Plan_usage,id,menuHeader_planUsage
+Invoices,id,menuHeader_inVoices
+Analyze,xpath,//*[contains(@ng-class,"{'activeHomeTab':builderNavigator.currentNavigationObj.selectedTab === 'analytics'}")]
+Conversations_Dash,xpath,//*[contains(text(),"Conversations Dashboard")]//parent::li
+Performance_Dash,xpath,//*[contains(text(),"Performance Dashboard")]//parent::li
+Custom_Dash,xpath,//*[contains(text(),"Custom Dashboards")]//parent::li
+Conversation_flow,xpath,//*[contains(text(),"Conversation Flows")]//parent::li
+NLP_Metrics,xpath,//*[contains(text(),"NLP Metrics")]//parent::li
+Usage_Metrics,xpath,//*[contains(text(),"Usage Metrics")]//parent::li
+Containment_Metrics,xpath,//*[contains(text(),"Containment Metrics")]//parent::li
+APIs & Extensions,id,menuHeader_apiExtensions

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="2" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="6" time="52.952">
+<testcase classname="Login Functionality" name="Kore botbuilder URL" time="19.282">
+<system-out><![CDATA[Given My WebApp 'Kore_applications' is open.................................passed
+Then I wait for '2' seconds.................................................passed
+Then I wait for Page to Load................................................passed
+And I wait '30' seconds for presence of element 'username'..................passed
+Then I should see element 'ContinueBtn' present on page.....................passed
+Then I should see text 'One platform for automating all your customer interactions' present on page.passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Functionality" name="Kore botbuilder Validate Img" time="0">
+<failure message="The scenario has no steps" type="java.lang.Exception"/>
+</testcase>
+<testcase classname="Login Functionality" name="Kore botbuilder Validate Link" time="0">
+<failure message="The scenario has no steps" type="java.lang.Exception"/>
+</testcase>
+<testcase classname="Login Functionality" name="Login to kore botbuilder" time="12.587">
+<system-out><![CDATA[Given I login in to Kore with username 'vishnuprasath.ramanujam@kore.com' and password 'Kore@123'.passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Functionality" name="Search for Bot" time="20.771">
+<system-out><![CDATA[Then I wait for '2' seconds.................................................passed
+And I wait '5' secs for Element 'sreach' be clickable.......................passed
+And I mouse over 'sreach'...................................................passed
+When I enter 'Travel bot' in field 'sreach'.................................passed
+When I click 'My_1st'.......................................................passed
+Then I wait for Page to Load................................................passed
+Then I wait for '15' seconds................................................passed
+And I mouse over 'Summary_menu'.............................................passed
+And I click 'Summary_menu'..................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Functionality" name="Clear HashMap" time="0.001">
+<system-out><![CDATA[And I clear hashmap.........................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

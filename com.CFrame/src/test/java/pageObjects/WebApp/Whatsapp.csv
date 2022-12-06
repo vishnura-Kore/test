@@ -1,0 +1,5 @@
+ParameterName,LocatorType,Locator
+Whatsapp,url,https://web.whatsapp.com/
+landingpage,xpath,//h1[text()='WhatsApp Web']
+search,xpath,//div[@title="Search input textbox"]
+Inputbox,xpath,//div[@title="Type a message"]
