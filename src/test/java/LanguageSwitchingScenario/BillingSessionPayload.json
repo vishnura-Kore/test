@@ -1,7 +1,0 @@
-{
-    "fromDate": "",
-    "toDate": "",
-    "unitType": ["session","request","alert","proactive"],
-    "groupByBot": "no",
-    "groupByPeriod": "date_day"
-}

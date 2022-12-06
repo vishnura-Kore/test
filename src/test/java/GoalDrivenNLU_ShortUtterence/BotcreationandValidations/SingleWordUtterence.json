@@ -1,8 +1,0 @@
-{
-    "taskId": "dc-66d12881-724d-567c-a955-6a14ab22fe9d",
-    "sentence": "hello",
-    "streamId": "st-84d1eedf-628b-5bb6-b9e5-7910f83bcfe5",
-    "taskName": "SendEmail",
-    "type": "DialogIntent",
-    "predictiveNer": true
-}
