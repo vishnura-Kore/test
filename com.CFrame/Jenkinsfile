@@ -13,10 +13,11 @@ pipeline {
         stage('checkout') { 
             steps {
                 bat "echo hello checkout"
-                checkout([$class: 'GitSCM', branches: [[name: '*/UItest/com.CFrame']], extensions: [], userRemoteConfigs: [[url: 'git@github.com:vishnura-Kore/test.git']]])         }
+                checkout([$class: 'GitSCM', branches: [[name: '*/UItest']], extensions: [], userRemoteConfigs: [[url: 'git@github.com:vishnura-Kore/test.git']]])         }
         }
         stage('Build') { 
             steps {
+            	bat 'cd com.CFrame'
                 bat "echo hello Build"
                 bat 'mvn clean compile'
             }
