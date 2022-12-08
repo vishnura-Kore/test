@@ -28,12 +28,12 @@ Feature: Login Functionality
   #And I click 'Login'
   #And I wait for Page to Load
   #And I wait '5' seconds for presence of element 'Kore_logo'
-
+	@ignore
   Scenario: Search for Bot
     Then I wait for '2' seconds
     And I wait '5' secs for Element 'sreach' be clickable
     And I mouse over 'sreach'
-    When I enter 'Travel bot' in field 'sreach'
+    When I enter 'c' in field 'sreach'
     When I click 'My_1st'
     Then I wait for Page to Load
     Then I wait for '15' seconds
