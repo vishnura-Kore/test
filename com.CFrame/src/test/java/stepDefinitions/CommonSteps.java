@@ -80,7 +80,15 @@ public class CommonSteps {
 		try {			
 			driver = sb.getDriver();
 			System.out.println("Driver value: "+driver);
-			driver.get(GetPageObject.OR_GetURL(url));
+			String Nurl=GetPageObject.OR_GetURL(url);
+			String Sysurl=System.getProperty("env.url");
+			if (Sysurl!=null) {
+				driver.get(Sysurl);
+				System.out.println("Profile URL="+Sysurl);
+			}else {
+				driver.get(Nurl);
+			}
+			//driver.get(GetPageObject.OR_GetURL(url));
 			wrapFunc.waitForPageToLoad();
 			//To save Test start time and save in hahmap
 			   String currentdate=util.Date_system("E MMM dd yyyy h:mm:ss a");
