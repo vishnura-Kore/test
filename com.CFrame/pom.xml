@@ -78,8 +78,8 @@
 			                        <jsonFiles>
 			                            <param>**/*.json</param>
 			                        </jsonFiles>
-			                        <outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>
-			                        <inputDirectory>${project.build.directory}/cucumber</inputDirectory>
+			                        <outputDirectory>**/test-output</outputDirectory>
+			                        <inputDirectory>src/test/java/testresult/cucumber-report</inputDirectory>
 			                        <checkBuildResult>false</checkBuildResult>
 			                    </configuration>
 			                </execution>
