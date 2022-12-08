@@ -17,7 +17,7 @@ pipeline {
         stage('Build') { 
             steps {
             	
-             	bat "echo change Dir"
+             	bat "echo Build"
             	dir("com.CFrame") { bat 'mvn clean compile' }
                
            }
@@ -26,7 +26,7 @@ pipeline {
         stage('Test') { 
             steps {
                 bat "echo Test"
-                bat 'mvn -P %Environment% test'
+                dir("com.CFrame") {bat 'mvn -P %Environment% test'}
             }
         }
     }
@@ -36,7 +36,7 @@ pipeline {
             cucumber buildStatus: 'null', customCssFiles: '', customJsFiles: '', failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/cucumber.json', jsonReportDirectory: 'testresult/cucumber-report', pendingStepsNumber: -1, reportTitle: 'Test Cucumber report', skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
 
 
-bat "echo Done!"
+			bat "echo Done!"
 			emailext subject: "Job '${env.JOB_NAME} - ${env.BUILD_NUMBER}:${currentBuild.currentResult}'", body: 'Refer to the Attachement', attachmentsPattern:'Karate/target/karate-reports/karate-summary.html', to: 'vishnuprasath.ramanujam@kore.com'
             }
         }
