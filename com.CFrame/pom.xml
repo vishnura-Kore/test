@@ -76,7 +76,7 @@
 			                    </goals>
 			                    <configuration>
 			                        <jsonFiles>
-			                            <param>**/*.json</param>
+			                            <param>*.json</param>
 			                        </jsonFiles>
 			                        <outputDirectory>test-output</outputDirectory>
 			                        <inputDirectory>src/test/java/testresult/cucumber-report</inputDirectory>
