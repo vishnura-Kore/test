@@ -18,7 +18,6 @@ pipeline {
             steps {
             	
              	bat "echo change Dir"
-             	sh "pwd"
             	dir("com.CFrame") { sh "pwd" }
                
            }
