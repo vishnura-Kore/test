@@ -69,7 +69,7 @@
 
 	<profiles>
 		 <profile>
-		    <id>Pre-Prod</id>
+		    <id>PreProd</id>
 		    <activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
