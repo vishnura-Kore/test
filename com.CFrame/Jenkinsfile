@@ -14,15 +14,18 @@ pipeline {
                 bat "echo hello checkout"
                 checkout([$class: 'GitSCM', branches: [[name: '*/UItest']], extensions: [], userRemoteConfigs: [[url: 'git@github.com:vishnura-Kore/test.git']]])         }
         }
-        stage('Build') { 
+        stage('change dir') { 
             steps {
-             	bat "echo hello Build"
+            	
+             	bat "echo change Dir"
+             	sh "pwd"
             	dir("com.CFrame") { sh "pwd" }
                
-                
-            }
-             steps {
-                bat "echo Build"
+           }
+        }
+        stage('Build') { 
+            steps {
+              bat "echo Build"
                 bat 'mvn clean compile'
             }
         }
