@@ -1,6 +1,6 @@
 pipeline {
     agent any 
-    parameters { choice(name: 'Environment', choices: ['Staging', 'Pre-Prod', 'Prod','SIT'], description: 'Select the Environment to run the test')}
+    parameters { choice(name: 'Environment', choices: ['Pre-Prod', 'Staging', 'Prod','SIT'], description: 'Select the Environment to run the test')}
 
     stages {
         stage('Clean') { 
@@ -18,14 +18,15 @@ pipeline {
             steps {
             	
              	bat "echo change Dir"
-            	dir("com.CFrame") { sh "pwd" }
+            	bat "dir("com.CFrame") { sh "pwd" }"
+            	bat 'cd com.CFrame'
                
            }
         }
         stage('Build') { 
             steps {
               bat "echo Build"
-                bat 'mvn clean compile'
+              bat 'mvn clean compile'
             }
         }
         stage('Test') { 

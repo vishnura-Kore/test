@@ -27,7 +27,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
-<build>
+			<build>
 				<testResources>
 					<testResource>
 						<directory>src/test/java</directory>
@@ -84,7 +84,7 @@
 		    </properties>
 		  </profile>
 		  <profile>
-		    <id>Saging</id>
+		    <id>Staging</id>
 		    <properties>
 		       <env.profile>https://staging-bots.korebots.com/botbuilder/</env.profile>
 		    </properties>
