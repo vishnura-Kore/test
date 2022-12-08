@@ -18,16 +18,11 @@ pipeline {
             steps {
             	
              	bat "echo change Dir"
-            	dir("com.CFrame") { bat "pwd" }
+            	dir("com.CFrame") { bat 'mvn clean compile' }
                
            }
         }
-        stage('Build') { 
-            steps {
-              bat "echo Build the project"
-                bat 'mvn clean compile'
-            }
-        }
+
         stage('Test') { 
             steps {
                 bat "echo Test"
