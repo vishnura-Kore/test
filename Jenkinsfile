@@ -1,6 +1,6 @@
 pipeline {
     agent any 
-    parameters { choice(name: 'Environment', choices: ['staging', 'qa1', 'prod'], description: 'Select the Environment to run the test')
+    parameters { choice(name: 'Environment', choices: ['staging', 'qa1', 'prod','preprod'], description: 'Select the Environment to run the test')
                  choice(name: 'Testing', choices: ['Sanity', 'Regression'], description: 'Select the testing type to run the test') }
 
     stages {
