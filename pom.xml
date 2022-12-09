@@ -144,7 +144,7 @@
 						<configuration>
 						 <includes>
 		                        <include>**/CustomerValidationBot1/Runner.java</include>
-		                        <include>**/CustomerValidationBot2/Runner.java</include>
+		                       
 		                     </includes>
 							<systemProperties>
 								<karate.env>${karate.profile}</karate.env>
