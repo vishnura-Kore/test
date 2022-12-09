@@ -108,7 +108,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>pre-prod</id>
+			<id>preprod</id>
 			<properties>
 				<karate.profile>pre-prod</karate.profile>
 			</properties>
