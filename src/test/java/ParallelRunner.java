@@ -24,7 +24,7 @@ public class ParallelRunner {
 	public void executeKarateTests() {
 		Runner.parallel(getClass(), 15);
 		Builder aRunner = new Builder();
-		aRunner.path("classpath:");
+		aRunner.path("classpath:CustomerValidationBot1");
 		aRunner.outputCucumberJson(true);
 		aRunner.parallel(15);
 		//Runner.parallel(aRunner);
