@@ -18,12 +18,12 @@ var config = {
                 }
 
 if(env == 'staging') {
-                config.appUrl = 'https://staging-bots.korebots.com/api/1.1/';
-                config.username = 'botowner@koreai.in';
-                config.password = 'Kore#123' ;
-                config.jwturl = 'https://demo.kore.net/mock/util/sts';
-                config.publicUrl ='https://staging-bots.korebots.com/api';
-                config.runtimeUrl= 'https://staging-bots.korebots.com';
+                config.appUrl = 'https://staging-bots.korebots.com/api/1.1/',
+                config.username = 'botowner@koreai.in',
+                config.password = 'Kore#123' ,
+                config.jwturl = 'https://demo.kore.net/mock/util/sts',
+                config.publicUrl ='https://staging-bots.korebots.com/api',
+                config.runtimeUrl= 'https://staging-bots.korebots.com',
 }
 else if(env == 'qa1') {
            config.appUrl = 'https://qa1-bots.kore.ai/api/1.1/',
@@ -45,12 +45,12 @@ else if(env == 'prod'){
            
            
            else if(env == 'preprod'){
-           config.appUrl = 'https://preprod-bots.korebots.com/api/1.1/';
-           config.username = 'botowner@koreai.in';
-           config.password = 'Kore#123';
-           config.jwturl = 'https://demo.kore.net/mock/util/sts';
-           config.publicUrl = 'https://preprod-bots.korebots.com/api';
-           config.runtimeUrl = 'https://preprod-bots.korebots.com';
+           config.appUrl = 'https://preprod-bots.korebots.com/api/1.1/',
+           config.username = 'botowner@koreai.in',
+           config.password = 'Kore#123',
+           config.jwturl = 'https://demo.kore.net/mock/util/sts',
+           config.publicUrl = 'https://preprod-bots.korebots.com/api',
+           config.runtimeUrl = 'https://preprod-bots.korebots.com',
            }
            
            
