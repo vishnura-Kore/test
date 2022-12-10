@@ -24,11 +24,11 @@ public class ParallelRunner {
 	public void executeKarateTests() {
 		Runner.parallel(getClass(), 15);
 		Builder aRunner = new Builder();
-		aRunner.path("classpath:token");
+		aRunner.path("classpath:");
 		aRunner.outputCucumberJson(true);
 		aRunner.parallel(15);
 		//Runner.parallel(aRunner);
-		Results result = aRunner.parallel(1);
+		Results result = aRunner.parallel(5);
 		System.out.println("Total Feature => " + result.getFeaturesTotal());
 		System.out.println("Total Scenarios => " + result.getScenariosTotal());
 		System.out.println("Passed Scenarios => " + result.getScenariosPassed());
