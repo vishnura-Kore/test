@@ -9,9 +9,19 @@ public class HashMap {
 	static Map<String, String> hmDT = new java.util.HashMap<String, String>();
 	
 
-	public static void add(String key, String value){
-		hm.put(key, value);
-	}	
+	public static void add(String key, String value) {
+		add(key, value, true);
+	}
+
+	public static void add(String key, String value, boolean override){
+		if(hm.get(key)!=null && !override){
+			System.out.println("KeyValue: "+key);
+			System.out.println("Object reference already exists in Hashmap!");
+		}
+		else if(hm.get(key) == null || override) {
+			hm.put(key, value);
+		}
+	}
 	
 	public static void addPO(String key, String value){
 		if(hmPO.get(key)!=null){
