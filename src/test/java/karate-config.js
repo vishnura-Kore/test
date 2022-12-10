@@ -9,12 +9,12 @@ env = 'preprod';
 
 var config = {
 
-                 appUrl: 'https://staging-bots.korebots.com/api/1.1/', 
+                 appUrl: 'https://preprod-bots.korebots.com/api/1.1/', 
                 username: 'botowner@koreai.in', 
                 password: 'Kore#123',
                 jwturl: 'https://demo.kore.net/mock/util/sts', 
-                publicUrl: 'https://staging-bots.korebots.com/api', 
-                runtimeUrl: 'https://staging-bots.korebots.com',
+                publicUrl: 'https://preprod-bots.korebots.com/api', 
+                runtimeUrl: 'https://preprod-bots.korebots.com',
                 }
 
 if(env == 'staging') {
