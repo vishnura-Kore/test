@@ -144,7 +144,7 @@
 						<version>${surefire-plugin.version}</version>
 						<configuration>
 						 <includes>
-		                        <include>**/CustomerValidationBot1/Runner.java</include>
+		                        <include>TestRunner3.java</include>
 		                       
 		                     </includes>
 							<systemProperties>
