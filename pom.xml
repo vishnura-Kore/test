@@ -88,9 +88,7 @@
 	<profiles>
 		<profile>
 			<id>staging</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
+
 			<properties>
 				<karate.profile>staging</karate.profile>
 			</properties>
@@ -109,8 +107,11 @@
 		</profile>
 		<profile>
 			<id>preprod</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<properties>
-				<karate.profile>pre-prod</karate.profile>
+				<karate.profile>preprod</karate.profile>
 			</properties>
 		</profile>
 		<profile>
