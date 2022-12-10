@@ -31,7 +31,7 @@ else if(env == 'qa1') {
            config.password = 'Kore@123',
            config.jwturl = 'https://demo.kore.net/mock/util/sts',
            config.publicUrl = 'https://qa1-bots.kore.ai/api/',
-           config.runtimeUrl= 'https://qa1-bots.kore.ai'
+           config.runtimeUrl= 'https://qa1-bots.kore.ai',
 }
  
 else if(env == 'prod'){
@@ -40,7 +40,7 @@ else if(env == 'prod'){
            config.password = 'Kore#123',
            config.jwturl = 'https://demo.kore.net/mock/util/sts',
            config.publicUrl = 'https://bots.kore.ai/api/',
-           config.runtimeUrl = 'https://bots.kore.ai'
+           config.runtimeUrl = 'https://bots.kore.ai',
            }
            
            
