@@ -60,7 +60,7 @@ else if(env == 'prod'){
            config.password = 'Kore#123'
            config.jwturl = 'https://demo.kore.net/mock/util/sts',
            config.publicUrl = 'https://jp-bots.kore.ai/api/',
-           config.runtimeUrl= 'https://jp-bots.kore.ai'
+           config.runtimeUrl= 'https://jp-bots.kore.ai',
 }
   else if(env == 'EUPROD') {
            config.appUrl = 'https://eu-bots.kore.ai/api/1.1',
@@ -68,7 +68,7 @@ else if(env == 'prod'){
            config.password = 'Kore@123456'
            config.jwturl = 'https://demo.kore.net/mock/util/sts',
            config.publicUrl = 'https://eu-bots.kore.ai/api/',
-           config.runtimeUrl= 'https://eu-bots.kore.ai'
+           config.runtimeUrl= 'https://eu-bots.kore.ai',
 }
 
 else if(env == 'post') {
@@ -77,7 +77,7 @@ else if(env == 'post') {
            config.password = 'Kore@123'
            config.jwturl = 'https://demo.kore.net/mock/util/sts',
            config.publicUrl = 'https://ebaysandbox.korebots.com/api/',
-           config.runtimeUrl= 'https://ebaysandbox.korebots.com'
+           config.runtimeUrl= 'https://ebaysandbox.korebots.com',
 }
 
 else if(env == 'sit') {
@@ -86,7 +86,7 @@ else if(env == 'sit') {
            config.password = 'Kore@123'
            config.jwturl = 'https://demo.kore.net/mock/util/sts',
            config.publicUrl = 'https://sit-bots.kore.ai/api/',
-           config.runtimeUrl= 'https://sit-bots.kore.ai'
+           config.runtimeUrl= 'https://sit-bots.kore.ai',
 }
 
 else if(env == 'IDFC') {
@@ -95,7 +95,7 @@ else if(env == 'IDFC') {
            config.password = 'IdfcKore@123'
            config.jwturl = 'https://demo.kore.net/mock/util/sts',
            config.publicUrl = 'https://bots-dev.korebots.com/api/',
-           config.runtimeUrl= 'https://bots-dev.korebots.com'
+           config.runtimeUrl= 'https://bots-dev.korebots.com',
 }
 else if(env == 'DE-BOTS') {
            config.appUrl = 'https://de-bots.kore.ai/api/1.1',
