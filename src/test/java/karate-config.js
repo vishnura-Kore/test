@@ -122,6 +122,7 @@ result = karate.callSingle('classpath:token/1_0AuthToken.feature',config);
 
 config.ids=  {userId: result.response.userInfo.id, accessToken: result.response.authorization.accessToken}
 karate.configure('retry',{ count:10, interval:5000});
+karate.configure('readTimeout', 5000);
 
  return config 
 
