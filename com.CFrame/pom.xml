@@ -63,7 +63,28 @@
 							</includes>
 						</configuration>
 					</plugin>
-					
+					<plugin>
+			            <groupId>net.masterthought</groupId>
+			            <artifactId>maven-cucumber-reporting</artifactId>
+			            <version>${cucumber-reporting.version}</version>
+			            <executions>
+			                <execution>
+			                    <id>generate-cucumber-reports</id>
+			                    <phase>test</phase>
+			                    <goals>
+			                        <goal>generate</goal>
+			                    </goals>
+			                    <configuration>
+			                        <jsonFiles>
+			                            <param>*.json</param>
+			                        </jsonFiles>
+			                        <outputDirectory>test-output</outputDirectory>
+			                        <inputDirectory>src/test/java/testresult/cucumber-report</inputDirectory>
+			                        <checkBuildResult>false</checkBuildResult>
+			                    </configuration>
+			                </execution>
+			            </executions>
+			        </plugin>
 					
 				</plugins>
 			</build>
