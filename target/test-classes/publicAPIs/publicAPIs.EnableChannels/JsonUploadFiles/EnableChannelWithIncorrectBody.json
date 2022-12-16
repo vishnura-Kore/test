@@ -1,0 +1,11 @@
+ {
+      "app": {
+          "clientId": "cs-ca934365-e352-5338-8a4d-6345b85d18fbr333",
+          "appName": "apppublic"
+      },
+      "displayName": "WebSDKName",
+      "type": "ivr",
+      "isAsync": false,
+      "enable": true,
+      "createInstance": true
+      }

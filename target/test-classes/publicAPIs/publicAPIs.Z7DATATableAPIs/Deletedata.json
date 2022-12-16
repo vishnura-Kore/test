@@ -1,0 +1,17 @@
+{
+    "query": {
+        "expressions": [
+            {
+                "field": "EmployeeId",
+                "operand": "=",
+                "value": 998877665544
+            },
+            {
+                "field": "EmployeeName",
+                "operand": "=",
+                "value": "Jadeja"
+            }
+        ],
+        "operator": "and"
+    }
+}

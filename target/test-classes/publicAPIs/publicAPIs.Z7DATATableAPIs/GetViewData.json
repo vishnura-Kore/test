@@ -1,0 +1,17 @@
+{
+    "query": {
+        "expressions": [
+            {
+                "field": "EmployeeId",
+                "operand": "=",
+                "value": 12345678
+            },
+            {
+                "field": "EmployeeName",
+                "operand": "=",
+                "value": "RAMA"
+            }
+        ],
+        "operator": "and"
+    }
+}

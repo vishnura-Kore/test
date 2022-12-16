@@ -111,27 +111,16 @@ public class Kore_custom {
 				case "FB":
 					element="(//*[@data-testid=\"message-container\"]/div[1]/div[1]/div[1]/span/div/div[1]/div/div)";
 					break;
-					
-				case "whatsapp":
-					element="(//span[@aria-label=\"Akraji Bank:\"]/following-sibling::div//div/div/span/span[text()='"+aText+"'])";
-					Timeofchat="(//span[@aria-label=\"Akraji Bank:\"]/following-sibling::div//div/div/span/span[text()='"+aText+"']//parent::span//parent::div//parent::div/following-sibling::div/div/span)";
-					break;	
 
 				case "Talk2Bot":
 					element="(//span[@class='simpleMsg' and contains(@msgdata,'"+aText+"')])";
 					Timeofchat="(//span[@class='simpleMsg' and contains(@msgdata,'"+aText+"')]//parent::div//parent::div//parent::li/div[@class='extra-info'])";
 					break;
 					}
-							
+								
 			String actualText=get_last_innertext(element);
 			String actualTexttime=get_last_innertext(Timeofchat);
-			String dateres =null;
-			if (bot_typ.contains("whatsapp")) {
-				dateres=date_chat_comp_whatsapp(actualTexttime);
-			}else {
-				dateres=date_chat_comp(actualTexttime);
-				}
-
+			String dateres=date_chat_comp(actualTexttime);
 			   if(dateres.contains("Greater")||dateres.contains("Equal"))
 			   {
 			
@@ -247,11 +236,6 @@ public class Kore_custom {
 					element="";
 					break;
 
-				case "whatsapp":
-					element="(//span[@aria-label=\"You:\"]/following-sibling::div//div/div/span/span[text()='"+aText+"'])";
-					Timeofchat="(//span[@aria-label=\"You:\"]/following-sibling::div//div/div/span/span[text()='"+aText+"']//parent::span//parent::div//parent::div/following-sibling::div/div/span)";
-					break;	
-					
 				case "Talk2Bot":
 					element="(//div[@class='messageBubble']/div[contains(text(),'"+aText+"')])";
 					Timeofchat="(//div[@class='messageBubble']/div[contains(text(),'"+aText+"')]//parent::div//parent::li/div[@class='extra-info'])";
@@ -260,12 +244,8 @@ public class Kore_custom {
 			
 			String actualText=get_last_innertext(element);
 			String actualTexttime=get_last_innertext(Timeofchat);
-			String dateres=null;
-			if (bot_typ.contains("whatsapp")) {
-				dateres=date_chat_comp_whatsapp(actualTexttime);
-			}else {
-				dateres=date_chat_comp(actualTexttime);
-				}
+					
+			String dateres=date_chat_comp(actualTexttime);
 
 		   if(dateres.contains("Greater")||dateres.contains("Equal"))
 		   {
@@ -307,24 +287,6 @@ public class Kore_custom {
 		return dateres;
 		
 	}
-	
-	public static String date_chat_comp_whatsapp(String actualTexttime) {
-		String dateres=null;
-		try{
-
-			String Cvalue =null;
-			Cvalue = HashMapContainer.get(Cvalue);
-			String starttime=util.ConvertDateFormat(Cvalue, "E MMM dd yyyy h:mm:ss a", "kk:mm");
-			dateres= util.date_compare("kk:mm", actualTexttime, starttime);
-
-		
-			}catch(Exception e) 
-			{
-			e.printStackTrace();
-			}
-		return dateres;
-	}
-	
 	public static String get_last_innertext(String element) {
 		String InnerText=null;
 		try{
@@ -504,21 +466,16 @@ public class Kore_custom {
 	@Then("^I enter OTP value from stored text '(.*)'$")
 	public static void Enter_OTP(String hasmap) {
 		try {
-			   String xpath="(//input[contains(@class,'koreOtpInput')])";
-			   String OTP = HashMapContainer.get(hasmap).toLowerCase( );
-			   String[] retval =util.string_split(OTP, " - ");
-			   String part1 = retval[0];
-			   String part2 = retval[1];
-			   String value=part1+part2;
-			   char[] chars=value.toCharArray();
-
-			   for (int i=0; i<chars.length; i++) {
-			   char text=value.charAt(i);
-			   String values=String.valueOf(text);
-			   int j=i+1;
-			   String element=xpath+"["+j+"]";
-			   driver.findElement(By.xpath(element)).sendKeys(values);
-
+			String xpath="(//input[contains(@class,'koreOtpInput')])";
+			String value = HashMapContainer.get(hasmap).toLowerCase( );
+			char[] chars=value.toCharArray();
+			
+				for (int i=0; i<chars.length; i++) {
+					char text=value.charAt(i);
+					String values=String.valueOf(text);
+					int j=i+1;
+					String element=xpath+"["+j+"]";
+					driver.findElement(By.xpath(element)).sendKeys(values);
 				}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -619,7 +576,4 @@ public class Kore_custom {
 			
 		}
 	}
-
-
-	
 }

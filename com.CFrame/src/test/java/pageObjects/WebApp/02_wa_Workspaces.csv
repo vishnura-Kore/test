@@ -1,0 +1,48 @@
+ParameterName,LocatorType,Locator
+02_wa_Workspaces,URL,https://workassist-pilot.kore.ai/
+walogo,xpath,//div[@class='waLogo mx-auto']
+wswsicon,id,primary_workspace_tab
+wsheadertitle,xpath,//div[@class='wslmch-title'][text()='Workspaces']
+wscreatenew,xpath,//*[text()='Create new']
+wscreatewsheader,xpath,//div[@class='p-dialog-title'][text()='Create workspace']
+wsenterws,id,wsNameInput
+wsvisibilityprivate,xpath,//div[@class='drItemTitle'][text()='Private']
+wsprivatetext,xpath,//div[@class='drItemInfo'][text()='Workspace is not discoverable by account members unless they are invited']
+wsvisibilitypublic,xpath,//div[@class='drItemTitle'][text()='Public']
+wspublictext,xpath,//div[@class='drItemInfo'][text()='Any one in your organisation can join this workspace']
+wsenterparticipants,xpath,//input[@placeholder='Type and add']
+wspeoplesuggestions,xpath,//div[contains(@class,'member-item-email')]|//div[@class='heroText']//span
+wsbtncreateworkspace,xpath,//span[@class='p-button-label p-c'][text()='Create workspace']
+wsprimarynavws,xpath,//div[@class='pn-wsSelectedIcons']//div[@class='nav-link']
+wssearch,xpath,//div[@class='searchBarContainer']
+wssearchinput,id,sbc-input-search
+wssearchlist,xpath,//div[@class='wslmbtc-body-container']//span[@class='wsnctc-name']//span
+wscount,xpath,//span[text()='My workspaces']/..//div[@class='wsCount']
+wsclose,xpath,//div[@class='wslmchr-icons-container iconsContainer']
+wshomevalidation,xpath,//div[@class='listItemName'][text()='Messages']
+wsnameinws,id,wsNameBox
+ws3dots,xpath,//div[contains(@class,'ws-menu-options')]
+ws3dotsrename,xpath,//span[contains(@class,'p-menuitem-text')][text()='Rename']
+ws3dotschangeicon,xpath,//span[contains(@class,'p-menuitem-text')][text()='Change icon']
+ws3dotscopylink,xpath,//span[contains(@class,'p-menuitem-text')][text()='Copy link']
+ws3dotspin,xpath,//span[contains(@class,'p-menuitem-text')][text()='Pin']
+ws3dotsviewprivateboards,xpath,//span[contains(@class,'p-menuitem-text')][text()='View private boards']
+ws3dotspin,xpath,//span[contains(@class,'p-menuitem-text')][text()='Pin']
+ws3dotssharingandpermissions,xpath,//span[contains(@class,'p-menuitem-text')][text()='Sharing and permissions']
+ws3dotsdelete,xpath,//span[contains(@class,'p-menuitem-text')][text()='Delete']
+ws3dotscreatews,xpath,//span[contains(@class,'p-menuitem-text')][text()='Create workspace']
+ws3dotsshowallws,xpath,//span[contains(@class,'p-menuitem-text')][text()='Show all workspaces']
+wsdeleteconfirmation,xpath,//*[text()='Delete']
+wsroleselect_drpdwn,xpath,//div[@class='option-item option-item-value']//div
+wsselectroleto,xpath,//div[@class='roleName']
+invite_btn,xpath,//span[@class='p-button-label p-c'][text()='Invite']
+sharemanageclose_btn,xpath,//button[contains(@class,'p-dialog-header-close')]
+wsworkspacename,xpath,//div[@class='workspaceName']//span[@class='_name']
+wsworkspacelivetext,xpath,//div[@class='details']//div[text()='workspace is now Live!']
+wschooseboard,xpath,//div[@class='createBoard ']//div[text()='Choose a type of board to get started']
+wstable,xpath,//div[@class='boardList']//div[text()='Table']
+wsdocument,xpath,//div[@class='boardList']//div[text()='Document']
+wsapplication,xapth,//div[@class='boardList']//div[text()='Application']
+wsembed,xpath,//div[@class='boardList']//div[text()='Embed']
+wsparticipantscount,xpath,//div[contains(@class,'muwmcmcdc-userEmail')]
+activetopic,xpath,//div[@id='topicItem'][contains(@class,'active')]

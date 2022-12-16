@@ -1,0 +1,30 @@
+ParameterName,LocatorType,Locator
+05_wa_Tables,URL,https://workassist-pilot.kore.ai/
+walogo,xpath,//div[@class='waLogo mx-auto']
+walogo,xpath,//div[@class='waLogo mx-auto']
+wsplusicon,xpath,//div[@class='board-create-menu ']
+wsboard_application,xpath,//span[@class='p-menuitem-text'][text()='Application']
+wsboard_table,xpath,//div[@id='boardCreationMenu']/ul/li[2]/a/span
+wsboard_document,xpath,//div[@id='boardCreationMenu']/ul/li[3]/a/span
+wsboard_embed,xpath,//div[@id='boardCreationMenu']/ul/li[4]/a/span
+wsboard_folder,xpath,//div[@id='boardCreationMenu']/ul/li[5]/a/span
+wstable_startfromscratch,xpath,//div[@class='righ-panel-list']/div[1]
+wstablenamechange,xpath,//div[@class='editableComponent ']
+ws3dots,xpath,//div[@class='more-menu-options']/li
+wstablerename,xpath,//div[@id='tableMoreMenu']//span[text()='Rename']
+wstabletitle,xpath,//div[@class='customHeaderLabel ']//span[text()='Text']
+wstablepeople,xpath,//div[@class='customHeaderLabel ']//span[text()='People']
+wstabledateandtime,xpath,//div[@class='customHeaderLabel ']//span[text()='Date and Time']
+wstablecopylink,xpath,//div[@id='tableMoreMenu']//span[text()='Copy link']
+wstableexport,xpath,//div[@id='tableMoreMenu']//span[text()='Export as excel']
+wstablesharigandpermissions,xpath,//div[@id='tableMoreMenu']//span[text()='Sharing and permissions']
+wstabledelete,xpath,//div[@id='tableMoreMenu']//span[text()='Delete']
+wstableBoardnotsharedmessage,xpath,//div[@class='privateBoardInfo  ']//span[text()='Board is not shared with anyone.']
+wstablegrid,xpath,//div[@class='gr-tab-view-List-left  ']//span[text()='Grid']
+wstablegridplusicon,xpath,//div[@class='gr-tab-view-List-left  ']//span[@class='addView']
+wstableaddrecord,xpath,//div[@class='gr-header-options-cntr table']/button
+wstablesearch,xpath,//div[@class='gr-header-options-cntr table']//div[@class='gr-search-cntr ']
+wstablefilter,xpath,//div[@class='taskGridHeader']//span[text()='Filter']
+wstableoptions,xpath,//div[@class='taskGridHeader']//div[text()='Options']
+wstableinviteusers,xpath,//div[@class='subHeadContainer']//span[text()='Invite users']
+wstableinvite,xpath,//span[text()='Invite']

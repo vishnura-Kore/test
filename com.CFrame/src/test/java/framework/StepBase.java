@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.Properties;
 import java.util.Set;
 import java.time.Duration;
@@ -17,7 +18,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 //import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 //import cucumber.api.Scenario;
@@ -72,11 +72,22 @@ public class StepBase {
 				switch(Browser.toLowerCase())
 				{
 				case "chrome":
+					if (System.getProperty("os.name").contains("Mac OS")) {
+						System.out.println("Running in MAC Chrome");
+						System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/src/test/java/resources/chromedriver");
+						ChromeOptions Option = new ChromeOptions();
+						Option.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+						driver = new ChromeDriver(new ChromeOptions());
+						driver.manage().window().maximize();
+						
+					}else {
 					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/java/resources/chromedriver.exe");
+					System.out.println("Mypath : "+System.getProperty("user.dir"));
 					ChromeOptions Option= new ChromeOptions();//DesiredCapabilities.chrome();
 				    Option.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 					driver = new ChromeDriver(new ChromeOptions());
 					driver.manage().window().maximize();
+					}
 					break;
 				case "firefox":
 					System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir") + "/src/test/java/resources/geckodriver.exe");
@@ -93,7 +104,7 @@ public class StepBase {
 					capabilities = new DesiredCapabilities();
 					capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 					System.out.println("Executing test on Safari browser");
-					//driver = new SafariDriver(capabilities);
+				//	driver = new SafariDriver(capabilities);
 					driver.manage().window().maximize();
 					break;
 				

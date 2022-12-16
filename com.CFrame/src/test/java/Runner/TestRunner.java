@@ -31,7 +31,9 @@ import org.junit.runner.RunWith;
 		
 		features = { "src/test/java/features" }, 
 		glue = { "Hooks","stepDefinitions" }, 
-		tags = "(@login) and not @ignore",
+	//	tags = "(@WA or @WATopics) and not @ignore",
+	//	tags = "(@WA or @WAWorkspaces or @WATopics) and not @ignore",
+		tags = "(@WA or @WAChats) and not @ignore",
 		monochrome = true
 		)
 //@RunWith(Cucumber.class)
@@ -40,8 +42,6 @@ public class TestRunner{
 	
 	static String Platform = "desktop";
 	static String Browser = "chrome";
-	static String BaseImg_capture = "False";
-	
 	//static ExtentReports extent;
 	
 	@BeforeSuite
@@ -58,8 +58,6 @@ public class TestRunner{
 			System.setProperty("test.PageObjectMode", objConfig.getProperty("test.PageObjectMode"));
 			System.setProperty("test.implicitlyWait", objConfig.getProperty("test.implicitlyWait"));
 			System.setProperty("test.pageLoadTimeout", objConfig.getProperty("test.pageLoadTimeout"));
-			System.setProperty("test.BaseImg_capture",BaseImg_capture );
-			
 						
 			if(Platform.equals("desktop")){
 				StepBase.setUp(Platform,Browser);	

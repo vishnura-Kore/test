@@ -1,0 +1,27 @@
+{
+    "filterInfo": {
+        "name": "feedback_filter_1",
+        "description": "",
+        "status": "closed",
+        "containmentType": "selfservice",
+        "type": "interactive",
+        "timeZone": "Asia/Calcutta",
+        "isDeveloper": true,
+        "channels": [],
+        "languages": [],
+        "taskNames": [],
+        "channelUIds": [],
+        "events": [],
+        "feedback": [
+            {
+                "type": "CSAT",
+                "operator": "eq",
+                "value": "5"
+            }
+        ],
+        "tags": {
+            "and": []
+        },
+        "labels": []
+    }
+}

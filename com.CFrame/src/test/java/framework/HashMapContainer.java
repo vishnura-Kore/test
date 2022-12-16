@@ -19,30 +19,15 @@ public class HashMapContainer {
 		hm.put(key, value);
 	}	
 	
-	/*
 	public static void addPO(String key, String value){
 		if(hmPO.get(key)!=null){
-			System.out.println("KeyValue: "+key);
-			System.out.println("Object reference already exists in Hashmap!");
+		//	System.out.println("KeyValue: "+key);
+		//	System.out.println("Object reference already exists in Hashmap!");
 		}else {
 		hmPO.put(key, value);
 		}
-	}	*/
-	
-	public static void addPO(String key, String value) {
-		addPO(key, value, false);
-	}
+	}	
 
-	public static void addPO(String key, String value, boolean override){
-		if(hmPO.get(key)!=null && !override){
-			System.out.println("KeyValue: "+key);
-			System.out.println("Object reference already exists in Hashmap!");
-		}
-		else if(hmPO.get(key) == null || override) {
-			hmPO.put(key, value);
-		}
-	}
-	
 	public static String get(String key){
 		return hm.get(key);
 	}

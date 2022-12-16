@@ -1,0 +1,17 @@
+{
+    "name": "PublicConsumerbot8722",
+    "envVariables": [
+        {
+            "key": "place",
+            "value": "Mumbai",
+            "variableType": "env",
+            "hint": "",
+            "scope": "prePopulated",
+            "group": "",
+            "propagateValue": false,
+            "vNameSpace": [
+                "c3b4c12c-ac52-5209-bb32-0f1df3e51707"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+      "password": "Kore@123",
+      "client_id": "1",
+      "client_secret": "1",
+      "scope": "friends",
+      "grant_type": "password",
+      "username": "release9.3@getnada.com",
+      "isadmin": true
+}

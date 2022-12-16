@@ -14,8 +14,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -52,11 +54,6 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.junit.Assert;
 import framework.SQLConnector;
 
-
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.comparison.ImageDiff;
-import ru.yandex.qatools.ashot.comparison.ImageDiffer;
 /**
  * @ScriptName : Utilities
  * @Description : This class contains Commonly used Keyword for Web
@@ -80,15 +77,15 @@ public class CommonSteps {
 		try {			
 			driver = sb.getDriver();
 			System.out.println("Driver value: "+driver);
+	//		driver.get(GetPageObject.OR_GetURL(url));
 			String Nurl=GetPageObject.OR_GetURL(url);
 			String Sysurl=System.getProperty("env.url");
 			if (Sysurl!=null) {
-				driver.get(Sysurl);
-				System.out.println("Profile URL="+Sysurl);
+			driver.get(Sysurl);
+			System.out.println("Profile URL="+Sysurl);
 			}else {
-				driver.get(Nurl);
+			driver.get(Nurl);
 			}
-			//driver.get(GetPageObject.OR_GetURL(url));
 			wrapFunc.waitForPageToLoad();
 			//To save Test start time and save in hahmap
 			   String currentdate=util.Date_system("E MMM dd yyyy h:mm:ss a");
@@ -105,7 +102,7 @@ public class CommonSteps {
 	@Then("^I load page object '(.*)'$")
 	public static void I_load_page_object(String PageOB) throws Exception {
 		try {			
-			I_Clear_hasmap();
+		//	I_Clear_hasmap();
 			GetPageObject.OR_Load_Page_object(PageOB);
 			wrapFunc.waitForPageToLoad();
 			//To save Test start time and save in hahmap
@@ -155,7 +152,26 @@ public class CommonSteps {
 			throw new CucumberException(e.getMessage(), e);
 		}
 	}
-
+	
+	@Then("^I enter '(.*)' in field with out clear'(.*)'$")
+	public static void I_enter_in_field_without_clear(String value, String element) {
+		try {
+			wrapFunc.waitForElementPresence(GetPageObject.OR_GetElement(element));
+			if(value.length()>1){
+				if(value.substring(0,2).equals("$$"))
+				{
+					
+					value = HashMapContainer.get(value);
+				}
+			}
+			driver.findElement(GetPageObject.OR_GetElement(element)).sendKeys(value);
+			// TODO Dismiss keyboard for webView
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new CucumberException(e.getMessage(), e);
+		}
+	}
+	
 	@Then("^I clear field '(.*)'$")
 	public static void I_clear_Field(String element) {
 		try {
@@ -271,8 +287,6 @@ public class CommonSteps {
 			wrapFunc.waitForElementPresence(GetPageObject.OR_GetElement(element));
 			WebElement elem = driver.findElement(GetPageObject.OR_GetElement(element));
 			if(elem.isEnabled()){
-				StepBase.embedScreenshot();
-				Assert.fail("Element is enabled!!"+element);
 				throw new Exception("Element is enabled!");
 			}
 		}catch(Exception e){
@@ -291,7 +305,7 @@ public class CommonSteps {
 			//StepBase.embedScreenshot();
 			wrapFunc.waitForPageToLoad();
 		} catch (Exception e) {
-			e.printStackTrace();
+		//	e.printStackTrace();
 			throw new CucumberException(e.getMessage(), e);
 		}
 	}
@@ -361,8 +375,6 @@ public class CommonSteps {
 			if(elementexist){
 				WrapperFunctions.highLightElement(driver.findElement(GetPageObject.OR_GetElement(element)));
 			}else{
-				StepBase.embedScreenshot();
-				Assert.fail("Element is not found on page!"+element);
 				throw new Exception("Element is not found! :"+element);
 			}
 
@@ -385,8 +397,6 @@ public class CommonSteps {
 				WrapperFunctions.highLightElement(driver.findElement(GetPageObject.OR_GetElement(element)));
 				StepBase.embedScreenshot();
 			}else{
-				StepBase.embedScreenshot();
-				Assert.fail("Element is not found on page!"+element);
 				throw new Exception("Element is not found!");
 			}
 
@@ -397,7 +407,7 @@ public class CommonSteps {
 			throw new ElementNotFoundException(element, "", "");
 		}
 	}
-
+	
 	@Then("^I should not see element '(.*)' present on page$")
 	public static void I_should_not_see_on_page(String element) throws Exception{
 
@@ -407,7 +417,6 @@ public class CommonSteps {
 			if(elementexist){
 				StepBase.embedScreenshot();
 				WrapperFunctions.highLightElement(driver.findElement(GetPageObject.OR_GetElement(element)));
-				Assert.fail("Element is found on page!"+element);
 				throw new Exception("Element is found on page!");
 			}else{
 				System.out.println("Element is not displayed");
@@ -574,7 +583,7 @@ public class CommonSteps {
 			throw new CucumberException(e.getMessage(), e);
 		}
 	}
-
+	
 	@Then("^I wait for '(.*)' seconds$")
 	public static void I_pause_for_seconds(int seconds) {
 		try {
@@ -666,9 +675,7 @@ public class CommonSteps {
 			WebElement elem = driver.findElement(GetPageObject.OR_GetElement(element));
 			if(elem.isDisplayed()){
 				System.out.println("Element is displayed");
-				Assert.assertTrue(true);
 			}else{
-				Assert.fail("Element is notDisplayed! :"+element);
 				throw new Exception("Element is notDisplayed!");
 				
 			}
@@ -682,16 +689,12 @@ public class CommonSteps {
     @Then("^I verify screenshot to Baseline of page '(.*)'$")
     public static void I_verify_Screenshot_toBaselined(String ImageBaseline)throws Exception{
           try{
-  		   //checking for BaseImg_capture is True/False.
-  			String BC= System.getProperty("test.BaseImg_capture");
-  			if(BC!="True")
-  			{
                  File f1 = new File(Utilities.takeScreenshot(driver));
                  System.out.println("ActualSS Path: "+f1);
-                 File f2 = new File((System.getProperty("user.dir")+"/BaselineImg/"+ImageBaseline+".png"));
+                 File f2 = new File((System.getProperty("user.dir")+"/BaslineImg/"+ImageBaseline));
                  Float PercentageVariation = Utilities.compareImage(f1,f2);
                  System.out.println("% of variation in image comparison with Baseline image: "+PercentageVariation+"%");
-                 if (PercentageVariation>1.0){
+                 if (PercentageVariation!=0.0){
                         BufferedImage img1 = ImageIO.read(f1);
                         BufferedImage img2 = ImageIO.read(f2);
                         BufferedImage bufferedImage = Utilities.getDifferenceImage(img1,img2);
@@ -703,10 +706,6 @@ public class CommonSteps {
                         baos.close();
                         throw new Exception("Compared images do not match! and has "+PercentageVariation+" % of Variation");
                  }
-           }else 
-           {
-        	   Screenshot_of_page(ImageBaseline);
-           }
           }catch(Exception e){
                  e.printStackTrace();
                  StepBase.embedProvidedScreenshot(imageInByte);
@@ -974,7 +973,7 @@ public class CommonSteps {
 		  final Point bottomright;
 		  final byte[] screengrab;
 		  File screenshotLocation = new File(Utilities.takeScreenshot(driver));
-		  File expectedImg = new File((System.getProperty("user.dir")+"/BaselineImg/"+ImageBaseline));
+		  File expectedImg = new File((System.getProperty("user.dir")+"/BaslineImg/"+ImageBaseline));
 		  WebElement e = driver.findElement(GetPageObject.OR_GetElement(element));
 		  screengrab = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 		  img = ImageIO.read(new ByteArrayInputStream(screengrab));
@@ -1103,7 +1102,6 @@ public class CommonSteps {
 				
 			    if (i==16){
 			    	System.out.println("Element is not displayed");
-			    	Assert.fail("Element is not displayed :");
 			    	throw new Exception("Element Not found on page!");
 			    }
 			}
@@ -1207,12 +1205,10 @@ public class CommonSteps {
 			// TODO Dismiss keyboard for webView
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("I_type_in_field_enter failed :"+e);
 			throw new CucumberException(e.getMessage(), e);
 		}
 	}
 	
-	//Do not use this method as it a custom, plz use I_should_see_element_Visible_wait
 	@Then("^I wait for '(.*)' sec untill element '(.*)' is visible$")
     public static void I_wait_Element_is_visible(int time, String element){
         try{
@@ -1352,7 +1348,6 @@ public class CommonSteps {
 				System.out.println("Total no. of invalid images are " + invalidImageCount);
 
 				if (invalidImageCount > 0){
-					Assert.fail("Total no. of invalid images are " + invalidImageCount);
 						FrameworkExceptions exp = new FrameworkExceptions("Total no. of invalid images are " + invalidImageCount);          
 						throw exp; 
 				}
@@ -1418,7 +1413,6 @@ public class CommonSteps {
 			System.out.println("Total no. of Re direct Link are " + redirect_link);
 
 			if ((Broken_link > 0)||(null_link >0)||(redirect_link>0)){
-					Assert.fail("Total no. of Broken link = " + Broken_link+" and No of Null link = "+null_link+" and No of Re Direct link= "+redirect_link);
 					FrameworkExceptions exp = new FrameworkExceptions("Total no. of Broken link = " + Broken_link+" and No of Null link = "+null_link+" and No of Re Direct link= "+redirect_link);          
 					throw exp; 
 			}
@@ -1488,16 +1482,14 @@ public class CommonSteps {
 					WrapperFunctions.highLightElement(driver.findElement(xp));
 					StepBase.embedScreenshot();
 				}else{
-					StepBase.embedScreenshot();
-					Assert.fail("Element is not found! :"+xp);
-					//throw new Exception("Element is not found!");
+					throw new Exception("Element is not found!");
 				}
 
 			} catch (Exception e) {
 				e.printStackTrace();
 				StepBase.embedScreenshot();
 				System.out.println("Element is not found");
-				throw new CucumberException(e.getMessage(), e);
+				throw new ElementNotFoundException(Message, "", "");
 			}
 		}	
 		@Then("^I should see element with ID '(.*)' present on page$")
@@ -1514,16 +1506,14 @@ public class CommonSteps {
 					WrapperFunctions.highLightElement(driver.findElement(xp));
 					StepBase.embedScreenshot();
 				}else{
-					StepBase.embedScreenshot();
-					Assert.fail("Element is not found! :"+xp);
-					//throw new Exception("Element is not found!");
+					throw new Exception("Element is not found!");
 				}
 
 			} catch (Exception e) {
 				e.printStackTrace();
-
+				StepBase.embedScreenshot();
 				System.out.println("Element is not found");
-				throw new CucumberException(e.getMessage(), e);
+				throw new ElementNotFoundException(Message, "", "");
 			}
 		}	
 			
@@ -1534,18 +1524,16 @@ public class CommonSteps {
 				
 				boolean x = wrapFunc.waitForElementVisible(GetPageObject.OR_GetElement(element),time);
 				if(x){
-					Assert.assertTrue(element, x);
 					WrapperFunctions.highLightElement(driver.findElement(GetPageObject.OR_GetElement(element)));
 				}else{
-					StepBase.embedScreenshot();
-					Assert.fail("Element is not visible! :"+element);
-					//throw new Exception("Element is not visible! :"+element);
+					throw new Exception("Element is not visible! :"+element);
 				}
 
 			} catch (Exception e) {
 				e.printStackTrace();
+				StepBase.embedScreenshot();
 				System.out.println("Element is not visible! :"+element);
-				throw new CucumberException(e.getMessage(), e);
+				throw new ElementNotFoundException(element, "", "");
 			}
 		}
 		
@@ -1557,17 +1545,15 @@ public class CommonSteps {
 				boolean x = wrapFunc.waitForElementVisible(GetPageObject.OR_GetElement(element));
 				if(x){
 					WrapperFunctions.highLightElement(driver.findElement(GetPageObject.OR_GetElement(element)));
-					Assert.assertTrue(element, x);
 				}else{
-					StepBase.embedScreenshot();
-					Assert.fail("Element is not visible! :"+element);
-					//throw new Exception("Element is not visible! :"+element);
+					throw new Exception("Element is not visible! :"+element);
 				}
 
 			} catch (Exception e) {
-				e.printStackTrace();
+			//	e.printStackTrace();
+				StepBase.embedScreenshot();
 				System.out.println("Element is not visible! :"+element);
-				throw new CucumberException(e.getMessage(), e);
+				throw new ElementNotFoundException(element, "", "");
 			}
 		}
 		
@@ -1595,65 +1581,38 @@ public class CommonSteps {
 					String DXpath="//*[contains(text(),'"+value+"')]"+path;
 					driver.findElement(By.xpath(DXpath)).click();
 					System.out.println("Text " + DXpath + " has been clicked");
-			
 						}catch(Exception e) {
 					e.printStackTrace();
 					System.out.println("Text to click has been not found!");
 				}
-			}	
-		
-		
-	    @Then("^Capture baseline image of the page with name '(.*)'$")
-	    public static void Screenshot_of_page(String Screenname)throws Exception{
-	          try{
-	                 File f1 = new File(Utilities.takeScreenshot(driver,Screenname));
-	                 System.out.println("ActualSS Path: "+f1);
-	          }catch(Exception e){
-	                 e.printStackTrace();
-	                throw new CucumberException(e.getMessage(),e);
-	          }
-	    }
-	    
-			
-		 /**
-		  * @ScriptName    : Dynamic_xpath
-		  * @Description   : This function replaces the dynamic value in locator path
-		  * @Input data	   : aText-string to replace,element- from csv, save as value to hashmap.
-		  * sample data in csv : test,xpath,(//div[contains(text(),'Xdynamic')                
-		  */
-			
-			@Then("^Dynamic xpath text '(.*)' for the element '(.*)' and save as '(.*)'$")
-			public static void Dynamic_xpath(String aText,String element, String Value){
-				try {
-					String Parameter = HashMapContainer.getPO(element);
-					String Nvalue=Parameter.replace("Xdynamic", aText);
-					HashMapContainer.addPO(Value, Nvalue.toString().trim());
-					}catch(Exception e) {
-					e.printStackTrace();
-					throw new CucumberException(e.getMessage(),e);
-					}
 			}
-			
-			@Then("^I wait for element not to be visiblie '(.*)'$")
-			public static void I_should_not_see_element_Visible(String element) {
-
-				try {
-					
-					boolean x = wrapFunc.waitForElementVisible(GetPageObject.OR_GetElement(element));
-					if(!x){
-						System.out.println("Element is not visible! :"+element);
-						Assert.assertTrue(element, true);
-					}else{
-						StepBase.embedScreenshot();
-						Assert.fail("Element is visible! :"+element);
-						
-					}
-
-				} catch (Exception e) {
-					e.printStackTrace();
-					System.out.println("I_should_not_see_element_Visible  failed."+element);
-					throw new CucumberException(e.getMessage(),e);
-				}
-			}
-			
+		
+	@Then("^I get dynamic xpath text '(.*)' for the element '(.*)' and save as '(.*)'$")
+	public static void Dynamic_xpath(String aText, String element, String Value) {
+		try {
+			String Parameter = HashMapContainer.getPO(element);
+			String Nvalue = Parameter.replace("Xdynamic", aText);
+			HashMapContainer.addPO(Value, Nvalue.toString().trim());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Then("^I scroll to '(.*)' element$")
+	public static void moveToElement(String elementpath){
+		try{
+			WebElement ele = driver.findElement(GetPageObject.OR_GetElement(elementpath));
+		//	WebElement ele = driver.findElement(By.xpath("//div[@class='mp-addWorkspace']"));
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", ele);
+			WebElement ele1=driver.findElement(GetPageObject.OR_GetElement(elementpath));
+				((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", ele);
+			Actions actions = new Actions(driver);
+			actions.moveToElement(ele);
+			actions.moveToElement(ele).build().perform();
+			Thread.sleep(1000);
+	}catch (Exception e){
+		System.out.println("Faile to move to the element "+elementpath);
+		}
+	}
 }

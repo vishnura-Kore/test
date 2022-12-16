@@ -1,0 +1,30 @@
+ {
+    "name": "WidgetName",
+    "type": "table",
+    "layout": {},
+    "sqlQuery": {
+        "dataSet": "Analytics",
+        "select": "metricType,taskname,channel",
+        "filterBy": "metricType='successtasks'"
+    },
+    "overlay": [],
+    "properties": {},
+    "dimensions": [
+        {
+            "fieldName": "metrictype",
+            "displayName": "metrictype",
+            "type": "string"
+        },
+        {
+            "fieldName": "taskname",
+            "displayName": "taskname",
+            "type": "string"
+        },
+        {
+            "fieldName": "channel",
+            "displayName": "channel",
+            "type": "string"
+        }
+    ],
+    "metrics": []
+}

@@ -1,0 +1,19 @@
+{
+"filters": {
+"from": "2022-08-28T00:00:00.000Z",
+"to": "2022-08-31T16:31:01.428Z",
+"channels": ["ivr"],
+"language": ["en"],
+"tags": {},
+"utteranceStatus":[0,1],
+"taskId": ["dg-0270a5a8-3d8c-5182-a2c6-257845a0b9fe"],
+"smallTalk": ["SmallTalk - greetings"],
+"clustername": [],
+"sessionCategory": [0,1],
+"sessionStatus":"all",
+"sort": {
+"field": "utteranceStatus"
+},
+"ignoreCount" : false
+}
+}

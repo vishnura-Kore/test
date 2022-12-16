@@ -1,0 +1,21 @@
+{
+    "data": [
+        {
+
+            "EmployeeName": "Dhoni",
+            "EmployeeId": 1122334499,
+            "EmployeeDOB": "2020/03/23"
+        },
+        {
+        
+            "EmployeeName": "Raina",
+            "EmployeeId": 1234567898,
+            "EmployeeDOB": "2020/04/24"
+        },
+        {
+            "EmployeeName": "Jadeja",
+            "EmployeeId": 998877665544,
+            "EmployeeDOB": "2020/07/24"
+        }
+    ]
+}

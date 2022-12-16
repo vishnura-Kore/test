@@ -85,7 +85,7 @@ public class GetPageObject{
 		}
 		catch(Exception e)
 		{
-			e.printStackTrace();
+		//	e.printStackTrace();
 			System.out.println("Verify entries in PageObject data in your \".csv\" or Class file!: "+element);
 		}
 		return WrapperFunctions.setLocator(LocatorType[0].toString().trim(), LocatorType[1].toString().trim());

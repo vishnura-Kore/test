@@ -1,0 +1,26 @@
+{
+    "name": "dummydot4 Dialogflow ES",
+    "enable": true,
+    "formfields": [
+        {
+            "title": "project_id",
+            "key": "project_id",
+            "default": "kore-externalnlu",
+            "isRequired": true,
+            "fieldType": "textbox",
+            "visibility": "hidden"
+        },
+        {
+            "title": "private_key",
+            "key": "private_key",
+            "default": "{   \"type\": \"service_account\",   \"project_id\": \"kore-externalnlu\",   \"private_key_id\": \"17baa5d1a61f5e9ef4e108559d20bc1ba7374dcd\",   \"private_key\": \"-----BEGIN PRIVATE KEY-----\\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDkOVkvxHzprzE+\\nRUeNjXOB2phMPj17YM2e/FsS98B7Uff6a+wxx9diQM6eVbEoGCZlJgY25C2i5irC\\nH3terFVKg0v8D5r/tailUobVXCi8otjlXlEe58hCivmedWUPcUq5K8xYVYLJwyl9\\nXLB2OGeIWf698TsgXFetVTDdVCMpIFVx42rfvP0FKEzYaVHqbVlNESF4Sb9UApoi\\njAhEi8QfZSlh+rR/U1+mhHUMwOlp2QsTIJtotGvS144lVNU6c10MakyqkDWxi/5c\\neDm4Z0hBkHyjsaa14REQH1ewPZnPmoWhi9axBhbjKT3aj126gH/5zcGjvLMi4FO8\\nLvgkhYerAgMBAAECggEAIO3lYG8JVu5gPIvidxohwGq57sZMOLEO+hGPUn1M2H5L\\nOWa4/bXH7fVL2qyikxZo8884tlLWAtsS8E96jX5wEABBxmy6AItFehUeP0q81frp\\nMK8bJUpsKq3CtopZupCuJ2maYmR0KohuRBhLncMlrRbPGrjjvxeTzv6rvkOVjylF\\naAo0Mh5lOSa1mIzE4Wbkl/0zS58+lSSquWmj8B0yuVrTyQxumHjArQV+hL/WQ1TM\\nfa7ZPFmt2X9nzXIKXvzHuHbG7d1aLOjlKwWT3DZ41tTFWNCTlLp9oJa7I5TgimyE\\n7as85oqRquCDvDI+hB3rLi+zmxcQaTcFIcHuwnJTgQKBgQD1kVoe0ux2ylhpN6xB\\n8+7O0RACsaUk389A6DF0gHvHfbdyCXviMNcqT9P5hGAfFxjclq/zK+o7QBqdKptU\\n5181WOBlRoEyYyHC8cCxWzA7VCXM9adUnMjDdoIMK8kHJP7LI2MOgg7m1VKxDx0O\\n7dcpDFSF8mM2Pdm/IX4P4ez4LQKBgQDt62A/ln2XWhwo9EZx6FB2ls/d/uKz5E1X\\njBqKZ8SKGUxU6Zl4gkQVIM9bommWsOGKP+xa1MBiTRKsMQlszedbif7f5sIgDOyO\\n6VfVazrP7J14TNnnZWJPd0bHH4cWXgSSXarg012gGJutXv5c6/IhUhswI2qAyRoe\\nHOHXP4jONwKBgGnAeb3yeZDCnQZaylzwrrP0BmASnprdo0RBeiLAvg1wD1MV0Hrd\\nK5v2GsRGhJp++N7uKcGf9NQlTBDI63HJ3g98Qc57aWIInN51+9Sk/4VdPJYiaDgg\\n+LhsTZ7uMDlabjuO9ralvcMctOq5JntqY5Ey1SeF9cHDKwWLZ91xHvrVAoGATuL2\\nfN8HMYH9SE8GdIpU8505ux/iR0dxpY+c1Ttm3WtZ9eWmr2Bx9pd0aavGWuK3RcHA\\nOrXEPFPV1yZDO8Jh7eYpjk/TGhFu9kvEhc0SKRMJe3Pv5FunZzXjT+7SOcZeubE5\\nEWbD6mt+YtPWfzT0ibvRq/pyO9VyRX3KHDbCw60CgYAQQ3kEzgkg9MvALR2mc572\\ndi1DrXY1y63A5cbrW6/N7EZ+h5kJl13RA5iOZVEqWTcAFwlCmJDAh3hY/S94x+8E\\n6qlkYUavtzvWtkbKrRpkQJHNSRhftx11F5GIFSfgzNCoVxjOQz6eL8JFr/HqoNXS\\nus6N/3ggp0xu/nKce4uxvQ==\\n-----END PRIVATE KEY-----\\n\",   \"client_email\": \"servicesnlu@kore-externalnlu.iam.gserviceaccount.com\",   \"client_id\": \"108825428306089611292\",   \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",   \"token_uri\": \"https://oauth2.googleapis.com/token\",   \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",   \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/servicesnlu%40kore-externalnlu.iam.gserviceaccount.com\" }",
+            "isRequired": true,
+            "fieldType": "textbox",
+            "visibility": "hidden"
+        }
+    ],
+    "streamId": "st-677f024e-8d46-50f5-a9e2-2a1a26e7ab3e",
+    "enable_pii": false,
+    "sso_type": "none",
+    "externalNluAdapter_auth": "dialogflowES"
+}

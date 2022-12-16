@@ -1,0 +1,15 @@
+
+ {
+    "botDefinition": "importbotdefid1",
+    "configInfo": "importbotconfigid1",
+    "botFunctions": [
+        "BotFunctionFIleID"
+    ],
+    "icon": "5fcb2ebfbbab2c550c2b1707",
+    "name": "ImportBotScenario",
+    "purpose": "customer",
+    "color": "#009dab"
+}
+    
+
+      

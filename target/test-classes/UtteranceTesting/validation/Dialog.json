@@ -1,0 +1,48 @@
+{
+    "name": "busticket",
+    "shortDesc": "taska",
+    "sceneMetadata": {
+        "description": "taska",
+        "name": "busticket",
+        "status": "In Progress",
+        "startDialogConversation": true
+    },
+    "nodes": [
+        {
+            "nodeId": "intent0",
+            "type": "intent",
+            "componentId": "dc-3bcc4592-d363-5f5a-bf40-aa1a8aa04d44",
+            "transitions": [
+                {
+                    "default": "",
+                    "metadata": {
+                        "color": "#299d8e",
+                        "connId": "dummy0"
+                    }
+                }
+            ],
+            "metadata": {
+                "left": 30,
+                "top": 120
+            },
+            "nodeOptions": {
+                "contextTags": []
+            },
+            "positionMeta": {
+                "left": 558,
+                "top": 100
+            }
+        }
+    ],
+    "visibility": {
+        "namespace": "private",
+        "namespaceIds": [
+            ""
+        ]
+    },
+    "isFollowUp": true,
+    "isHidden": false,
+    "interruptOptions": {
+        "priority": "bot"
+    }
+}

@@ -27,6 +27,9 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
+	<profiles>
+		<profile>
+			<id>RunFeature</id>
 			<build>
 				<testResources>
 					<testResource>
@@ -58,66 +61,15 @@
 							<includes>
 								<include>**/TestRunner.java</include>
 							</includes>
-							<systemProperties>
-								<env.url>${env.profile}</env.url>
-							</systemProperties>
 						</configuration>
 					</plugin>
-					<plugin>
-			            <groupId>net.masterthought</groupId>
-			            <artifactId>maven-cucumber-reporting</artifactId>
-			            <version>${cucumber-reporting.version}</version>
-			            <executions>
-			                <execution>
-			                    <id>generate-cucumber-reports</id>
-			                    <phase>test</phase>
-			                    <goals>
-			                        <goal>generate</goal>
-			                    </goals>
-			                    <configuration>
-			                        <jsonFiles>
-			                            <param>*.json</param>
-			                        </jsonFiles>
-			                        <outputDirectory>test-output</outputDirectory>
-			                        <inputDirectory>src/test/java/testresult/cucumber-report</inputDirectory>
-			                        <checkBuildResult>false</checkBuildResult>
-			                    </configuration>
-			                </execution>
-			            </executions>
-			        </plugin>
+					
+					
 				</plugins>
 			</build>
 
-	<profiles>
-		 <profile>
-		    <id>PreProd</id>
-		    <activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-		    <properties>
-		       <env.profile>https://preprod-bots.korebots.com/botbuilder/</env.profile>
-		    </properties>
-		  </profile>
-		  <profile>
-		    <id>SIT</id>
-		    <properties>
-		       <env.profile>https://sit-bots.kore.ai/botbuilder/</env.profile>
-		    </properties>
-		  </profile>
-		  <profile>
-		    <id>Staging</id>
-		    <properties>
-		       <env.profile>https://staging-bots.korebots.com/botbuilder/</env.profile>
-		    </properties>
-		  </profile>
-		  <profile>
-		    <id>Prod</id>
-		    <properties>
-		       <env.profile>https://bots.kore.ai/botbuilder/login</env.profile>
-		    </properties>
-		  </profile>
+		</profile>
 	</profiles>
-
 
 	<!-- selenium -->
 	<dependencies>
@@ -374,13 +326,13 @@
 		    <version>1.18.22</version>
 		    <scope>provided</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot -->
-			<dependency>
-			    <groupId>ru.yandex.qatools.ashot</groupId>
-			    <artifactId>ashot</artifactId>
-			    <version>1.5.4</version>
-			</dependency>
 		
-
+		<!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+   		<dependency>
+       		<groupId>org.assertj</groupId>
+        	<artifactId>assertj-core</artifactId>
+        	<version>3.18.1</version>
+   		</dependency>
+		
 	</dependencies>
 </project>

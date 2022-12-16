@@ -24,7 +24,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
-import java.time.LocalTime;
 import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
@@ -76,28 +75,6 @@ public class Utilities
 		}
 	}
 
-	/**
-	 * Method: takeScreenshot and save in given name 
-	 * Description: 
-	 * @param timeInMilliseconds
-
-	 */
-	public static String takeScreenshot(WebDriver driver,String name) 
-	{
-		try 
-		{
-			Thread.sleep(10000);
-			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			String SSPath= System.getProperty("user.dir")+"/BaselineImg/"+name+".png";
-			FileUtils.copyFile(scrFile, new File(SSPath));
-			return SSPath;
-
-		}
-		catch (Exception e) 
-		{
-			throw new RuntimeException(e);
-		}
-	}
 	/**
 	 * Method: waitFor
 	 * Description: Waits for the specified amount of [timeInMilliseconds].
@@ -498,5 +475,5 @@ public class Utilities
 
 		 
 		 }	
-
+	
 }

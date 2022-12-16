@@ -1,0 +1,6 @@
+{
+    "name": "noDialogSurvey",
+    "type": "THUMB",
+    "isEndOfConversation": true,
+    "createDialog": false
+}

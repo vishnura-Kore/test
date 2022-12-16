@@ -1,0 +1,27 @@
+{
+    "filterInfo": {
+        "name": "NPSFilter",
+        "description": "NPSFilter",
+        "status": "all",
+        "containmentType": "selfservice",
+        "type": "all",
+        "timeZone": "Asia/Calcutta",
+        "isDeveloper": true,
+        "channels": [],
+        "languages": [],
+        "taskNames": [],
+        "channelUIds": [],
+        "events": [],
+        "feedback": [
+            {
+                "type": "THUMB",
+                "operator": "eq",
+                "value": "1"
+            }
+        ],
+        "tags": {
+            "and": []
+        },
+        "labels": []
+    }
+}

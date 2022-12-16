@@ -1,0 +1,14 @@
+{
+      "streamId": "PstreamId",
+      "channelDetails": {
+       "displayName": "slack",
+       "botName":"Botname",
+       "enable": true,
+       "type": "slack",
+       "accessToken": "accessToken",
+       "clientId": "smartclientId1",
+       "clientSecret": "smartclientsecret1",
+       "verificationToken": "abcd"
+      },
+      "type": "slack"
+      }

@@ -1,0 +1,8 @@
+{
+    "taskId": "dc-b84bf401-bf4f-5034-82e3-01559110aa7c",
+    "sentence": "My company",
+    "entities": [],
+    "streamId": "st-0d397484-a7e7-5a24-8327-515415ea7fec",
+    "type": "DialogIntent",
+    "taskName": "SendEmail "
+}

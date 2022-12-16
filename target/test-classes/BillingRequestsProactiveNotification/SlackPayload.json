@@ -1,0 +1,12 @@
+{
+    "channel": "slack",
+    "userIdentityType": "resolve",
+    "message": {
+        "type": "text",
+        "val": "Notification from the MS Teams"
+    },
+    "identities": [
+        "harishcse547@gmail.com",
+        "mallik.devisetty@kore.com"
+    ]
+}

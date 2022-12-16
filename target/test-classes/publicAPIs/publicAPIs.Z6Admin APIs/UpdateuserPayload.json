@@ -1,0 +1,24 @@
+{
+    "users": [
+        {
+            "userInfo": {
+                "emailId": "karatetesting@zetmail.com",
+                "firstName": "Bot",
+                "lastName": "owner",
+                "companyName": "kore",
+                "dept": "dept",
+                "companyContactPhone": "12334444567",
+                "worknumber": "321",
+                "street": "hyderbad",
+                "suiteNo": "suite",
+                "city": "city",
+                "zip": "123123",
+                "state": "state",
+                "country": "country"
+            },
+            "assignBotTasks": [],
+            "canCreateBot": true,
+            "isDeveloper": true
+        }
+    ]
+}

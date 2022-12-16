@@ -1,0 +1,8 @@
+{
+    "taskId": "dc-6882191f-fd50-568c-bb23-71c4749d9460",
+    "sentence": "send me an email",
+    "streamId": "st-b8b07315-9330-5f36-8603-f00c03d4b645",
+    "taskName": "SendEmail",
+    "type": "DialogIntent",
+    "predictiveNer": true
+}

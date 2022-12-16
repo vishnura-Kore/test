@@ -1028,7 +1028,7 @@ public class WrapperFunctions
 		} 
 		catch(Exception exception)
 		{
-			exception.printStackTrace();
+		//	exception.printStackTrace();
 			return false;
 		}
 	}
