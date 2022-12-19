@@ -13,7 +13,7 @@ pipeline {
         stage('checkout') { 
             steps {
                 bat "echo hello checkout"
-                checkout([$class: 'GitSCM', branches: [[name: '*/test2']], extensions: [], userRemoteConfigs: [[url: 'git@github.com:vishnura-Kore/test.git']]])         }
+                checkout([$class: 'GitSCM', branches: [[name: '*/API_Automation_Karate']], extensions: [], userRemoteConfigs: [[url: 'git@github.com:Koredotcom/CucumberUIAutomation.git']]])         }
         }
         stage('Build') { 
             steps {
