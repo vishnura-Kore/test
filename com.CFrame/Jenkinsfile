@@ -37,7 +37,7 @@ pipeline {
 			bat "echo Done!"
 			emailext subject: "Job '${env.JOB_NAME} - ${env.BUILD_NUMBER}:${currentBuild.currentResult}'", body: 'Refer to the Attachement', attachmentsPattern:'Karate/target/karate-reports/karate-summary.html', to: 'vishnuprasath.ramanujam@kore.com'
 			bat "echo email done!"
-			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'com.CFrame/src/test/java/testresult/cucumber-report', reportFiles: 'index.html', reportName: 'CC HTML Report', reportTitles: ''])
+			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'com.CFrame/src/test/java/testresult/cucumber-report/', reportFiles: 'index.html', reportName: 'CC HTML Report', reportTitles: ''])
             }
         }
 }
