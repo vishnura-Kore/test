@@ -58,7 +58,9 @@
 							<includes>
 								<include>**/TestRunner.java</include>
 							</includes>
-
+							<systemProperties>
+								<env.url>${env.profile}</env.url>
+							</systemProperties>
 						</configuration>
 					</plugin>
 					<plugin>
@@ -92,9 +94,9 @@
 		    <activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
-		    <systemProperties>
+		    <properties>
 		       <env.url>https://preprod-bots.korebots.com/botbuilder/</env.url>
-		    </systemProperties>
+		    </properties>
 		  </profile>
 		  <profile>
 		    <id>SIT</id>
