@@ -16,7 +16,7 @@ Feature: Login Functionality
 
   #And Validate all Links
   Scenario: Login to kore botbuilder
-    Given I login in to Kore with username 'vishnuprasath.ramanujam@kore.com' and password 'Kore@123'
+    Given I login in to Kore with username 'vishnuprasath.ramanujam@kore.com' and password 'Kore@12345'
 
   #And I clear field 'username'
   #And I enter 'vishnuprasath.ramanujam@kore.com' in field 'username'
