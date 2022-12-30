@@ -61,7 +61,9 @@
 							<includes>
 								<include>**/TestRunner.java</include>
 							</includes>
-
+							<systemProperties>
+								<env.url>${env.profile}</env.url>
+							</systemProperties>
 						</configuration>
 					</plugin>
 					<plugin>
