@@ -27,6 +27,9 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
+<profiles>
+	<profile>
+	<id>RunFeature</id>
 			<build>
 				<testResources>
 					<testResource>
@@ -85,8 +88,8 @@
 			        </plugin>
 				</plugins>
 			</build>
+		</profile>
 
-	<profiles>
 		 <profile>
 		    <id>PreProd</id>
 		    <activation>
