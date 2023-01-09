@@ -11,7 +11,7 @@ var config = {
 
                  appUrl: 'https://preprod-bots.korebots.com/api/1.1/', 
                 username: 'botowner@koreai.in', 
-                password: 'Kore#123',
+                password: 'Kore#1234',
                 jwturl: 'https://demo.kore.net/mock/util/sts', 
                 publicUrl: 'https://preprod-bots.korebots.com/api', 
                 runtimeUrl: 'https://preprod-bots.korebots.com',
@@ -47,7 +47,7 @@ else if(env == 'prod'){
            else if(env == 'preprod'){
            config.appUrl = 'https://preprod-bots.korebots.com/api/1.1/';
            config.username = 'botowner@koreai.in';
-           config.password = 'Kore#123';
+           config.password = 'Kore#1234';
            config.jwturl = 'https://demo.kore.net/mock/util/sts';
            config.publicUrl = 'https://preprod-bots.korebots.com/api';
            config.runtimeUrl = 'https://preprod-bots.korebots.com';
